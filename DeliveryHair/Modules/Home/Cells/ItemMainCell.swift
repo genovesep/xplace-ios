@@ -44,13 +44,15 @@ extension ItemMainCell: UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         switch UIScreen.main.bounds.height {
         case 568:
-            return CGSize(width: 130, height: 230)
+            return CGSize(width: 150, height: 230)
+        case 667:
+            return CGSize(width: 180, height: 280)
         case 736:
-            return CGSize(width: 178, height: 278)
-        case 896:
-            return CGSize(width: 180, height: 286)
+            return CGSize(width: 197, height: 303)
+        case 812:
+            return CGSize(width: 180, height: 280)
         default:
-            return CGSize(width: 168, height: 268)
+            return CGSize(width: 180, height: 280)
         }
     }
 }

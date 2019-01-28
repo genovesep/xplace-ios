@@ -15,8 +15,18 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
+    
+    func applyGradient(colours: [UIColor]) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = nil
+        gradient.cornerRadius = gradient.frame.height/2
+        return gradient
+    }
 }
 
+// for custom image caching
 class CustomImageView: UIImageView {
     
     var imageUrlString: String?

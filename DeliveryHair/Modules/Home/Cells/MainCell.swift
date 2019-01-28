@@ -22,6 +22,7 @@ class MainCell: UITableViewCell {
     @IBOutlet weak var segmentedView: UIView!
     
     var delegate: MainCellDelegate?
+    var selectedIndex = 0
     
     func customInit() {
         NotificationCenter.default.addObserver(self, selector: #selector(setupSegmentedControl), name: NSNotification.Name(kNSNotificationName_productLoad), object: nil)
@@ -30,9 +31,10 @@ class MainCell: UITableViewCell {
     @objc func setupSegmentedControl() {
         let codeSegmented = CustomSegmentedControl(frame: segmentedView.bounds, buttonTitle: ["TODOS", "PROFISSIONAL", "CLIENTE"])
         codeSegmented.backgroundColor = .clear
-        codeSegmented.delegate = self
+        codeSegmented.delegate = self        
         segmentedView.addSubview(codeSegmented)
         segmentedView.isHidden = false
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(kNSNotificationName_productLoad), object: nil)
     }
 }
 

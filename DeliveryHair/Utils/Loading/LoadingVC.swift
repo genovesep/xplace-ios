@@ -14,7 +14,7 @@ class LoadingVC: UIView {
     lazy var transparentView: UIView = {
         let transparentView = UIView(frame: UIScreen.main.bounds)
         transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        transparentView.isUserInteractionEnabled = false
+        transparentView.isUserInteractionEnabled = true
         return transparentView
     }()
     

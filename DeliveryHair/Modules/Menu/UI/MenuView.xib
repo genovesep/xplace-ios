@@ -83,6 +83,9 @@
                             <state key="normal" title="Home">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="didPressLoginHomeButton:" destination="-1" eventType="touchUpInside" id="kmr-Ua-mhn"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lee-ik-Vga">
                             <rect key="frame" x="0.0" y="52" width="210" height="33"/>

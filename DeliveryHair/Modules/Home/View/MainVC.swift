@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum Device: CGFloat {
+    case iPhone_SE = 568.0
+    case iPhone_8 = 667.0
+    case iPhone_8_Plus = 736.0
+    case iPhone_X = 812.0
+}
+
 class MainVC: UIViewController {
     
     private enum CellIdentifier: String {
@@ -22,16 +29,17 @@ class MainVC: UIViewController {
     var localProductArr: [Product] = []
     var filteredProductArr: [Product] = []
     var isShowingMenu = false
+    var segmentedControlSelectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        loadProducts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        MenuView.initialize()
-        loadProducts()
+        menuContainerView.delegate = self
     }
     
     func setupView() {
@@ -52,14 +60,12 @@ class MainVC: UIViewController {
                     self.tableView.reloadData()
                 }
             } else {
-                /// todo - treat error
+                // TODO - treat error
             }
         }
     }
     
-    
-    /// ACTIONS
-    @IBAction func didPressMenuButton(_ sender: Any) {
+    func toggleMenuShowHide() {
         menuLeadingConstraint.constant = isShowingMenu ? -250 : 0
         tableView.isScrollEnabled = isShowingMenu ? true : false
         
@@ -70,11 +76,18 @@ class MainVC: UIViewController {
         isShowingMenu = !isShowingMenu
     }
     
+    
+    // ACTIONS
+    @IBAction func didPressMenuButton(_ sender: Any) {
+        toggleMenuShowHide()
+    }
+    
 }
 
 extension MainVC: MainCellDelegate {
     func reloadItemCollectionView(forIndex index: Int) {
         filteredProductArr = []
+        segmentedControlSelectedIndex = index
         switch index {
         case 0:
             filteredProductArr = []
@@ -102,9 +115,22 @@ extension MainVC: MainCellDelegate {
             break
         }
         
-        let rowToReload = NSIndexPath(row: 1, section: 0)
-//        self.tableView.reloadRows(at: [rowToReload as IndexPath], with: .fade)
-        self.tableView.reloadData()
+        //let rowToReload = NSIndexPath(row: 1, section: 0)
+        //self.tableView.reloadRows(at: [rowToReload as IndexPath], with: .fade)
+        tableView.reloadData()
+    }
+}
+
+extension MainVC: MenuViewDelegate {
+    func didPress(homeLoginButton button: Int) {
+        if button == 0 {
+            // TODO - is logged in
+        } else {
+            let vc = UIStoryboard.ViewController.loginVC
+            toggleMenuShowHide()
+            tableView.setContentOffset(.zero, animated: true)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -116,24 +142,28 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
             if !filteredProductArr.isEmpty {
                 switch UIScreen.main.bounds.height {
                 case 568:
-                    return CGFloat(230*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
+                    return CGFloat(235*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
+                case 667:
+                    return CGFloat(285*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
                 case 736:
-                    return CGFloat(278*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
-                case 896:
-                    return CGFloat(286*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
+                    return CGFloat(308*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
+                case 812:
+                    return CGFloat(285*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
                 default:
-                    return CGFloat(268*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
+                    return CGFloat(285*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
                 }
             } else {
                 switch UIScreen.main.bounds.height {
                 case 568:
-                    return CGFloat(230*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
+                    return CGFloat(235*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
+                case 667:
+                    return CGFloat(285*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
                 case 736:
-                    return CGFloat(278*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
-                case 896:
-                    return CGFloat(286*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
+                    return CGFloat(308*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
+                case 812:
+                    return CGFloat(285*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
                 default:
-                    return CGFloat(268*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
+                    return CGFloat(285*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
                 }
             }
         }
@@ -149,6 +179,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.MainCell.rawValue) as! MainCell
             cell.delegate = self
             cell.customInit()
+            cell.selectedIndex = segmentedControlSelectedIndex
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.ItemMainCell.rawValue) as! ItemMainCell

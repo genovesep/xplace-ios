@@ -13,10 +13,21 @@ extension UIColor {
     
     enum VisualIdentity {
         
-        static var themePink: UIColor {
-            return UIColor(hex: "A617B3")
+        static var purple: UIColor {
+            return UIColor(hex: "6A3093")
         }
         
+        static var lightPink: UIColor {
+            return UIColor(hex: "D04ED6")
+        }
+        
+        static var darkPink: UIColor {
+            return UIColor(hex: "A828B1")
+        }
+        
+        static var hotPink: UIColor {
+            return UIColor(hex: "FF0084")
+        }
     }
     
     convenience init(hex: String) {

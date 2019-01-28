@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuViewDelegate {
+    func didPress(homeLoginButton button: Int)
+}
+
 class MenuView: UIView {
 
     @IBOutlet var contentView: UIView!
@@ -28,6 +32,9 @@ class MenuView: UIView {
         get { return emailLabel.text }
         set { emailLabel.text = newValue }
     }
+    
+    var delegate: MenuViewDelegate?
+    var isLoggedIn = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -57,5 +64,15 @@ class MenuView: UIView {
         middleView.isHidden = true
         loginStack2.isHidden = true
     }
-    
+}
+
+extension MenuView {
+    @IBAction func didPressLoginHomeButton(_ sender: UIButton) {
+        //guard let status = isLoggedIn else { return }
+        if isLoggedIn {
+            // TODO - is logged in
+        } else {
+            delegate?.didPress(homeLoginButton: 1)
+        }
+    }
 }

@@ -8,6 +8,11 @@
 
 import Foundation
 
+// NOTIFICATION NAMES
 let kNSNotificationName_productLoad = "didFinishLoadingProducts"
-
 let kIsLoggedIn = "UserIsLoggedIn"
+
+// SEGUES
+let kSegueToRegisterVC = "toRegisterVC"
+let kSegueToForgetPasswordVC = "toForgetPasswordVC"
+let kSegueToRegisterAddressVC = "toRegisterAddressVC"

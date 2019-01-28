@@ -7,8 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3273C09F1851F2300006D35 /* Pods_DeliveryHair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6850D08E546DA95BB5268054 /* Pods_DeliveryHair.framework */; };
+		DF15659221FF5290009CFC19 /* RegisterAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15659121FF5290009CFC19 /* RegisterAddressVC.swift */; };
+		DF15659421FF54C2009CFC19 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15659321FF54C2009CFC19 /* UIImage+Ext.swift */; };
 		DF19301921F5F33B00C1A3EA /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF19301721F5F33B00C1A3EA /* MenuView.xib */; };
 		DF60F02721F883E8005306BD /* NumberExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60F02621F883E8005306BD /* NumberExt.swift */; };
+		DF60F02D21F8A22D005306BD /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02921F8A22D005306BD /* Roboto-Italic.ttf */; };
+		DF60F02E21F8A22D005306BD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02A21F8A22D005306BD /* Roboto-Bold.ttf */; };
+		DF60F02F21F8A22D005306BD /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02B21F8A22D005306BD /* Roboto-Medium.ttf */; };
+		DF60F03021F8A22D005306BD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02C21F8A22D005306BD /* Roboto-Regular.ttf */; };
+		DF79A79221FDC5A40026B857 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF79A79121FDC5A40026B857 /* Login.storyboard */; };
+		DF79A79421FDCBD00026B857 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A79321FDCBD00026B857 /* LoginVC.swift */; };
+		DF79A79621FDCD250026B857 /* StoryboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A79521FDCD250026B857 /* StoryboardExt.swift */; };
+		DF79A79821FDD69A0026B857 /* DeliveryHairTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A79721FDD69A0026B857 /* DeliveryHairTextField.swift */; };
+		DF79A79A21FDD8EA0026B857 /* DeliveryHairButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A79921FDD8EA0026B857 /* DeliveryHairButton.swift */; };
+		DF79A79C21FDD9BF0026B857 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A79B21FDD9BF0026B857 /* CustomButton.swift */; };
+		DF79A79F21FDDB380026B857 /* RoundContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A79E21FDDB380026B857 /* RoundContainerView.swift */; };
+		DF79A7A121FDE60A0026B857 /* grapedragon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF79A7A021FDE60A0026B857 /* grapedragon.ttf */; };
+		DF79A7C321FF37C60026B857 /* LoginBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A7C221FF37C60026B857 /* LoginBaseVC.swift */; };
+		DF79A7C621FF42BC0026B857 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A7C521FF42BC0026B857 /* RegisterVC.swift */; };
+		DF79A7CA21FF46AA0026B857 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A7C921FF46AA0026B857 /* ForgotPasswordVC.swift */; };
 		DF99D58F21EF92BE00D03913 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D58E21EF92BE00D03913 /* AppDelegate.swift */; };
 		DF99D59121EF92BE00D03913 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D59021EF92BE00D03913 /* MainVC.swift */; };
 		DF99D59421EF92BE00D03913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF99D59221EF92BE00D03913 /* Main.storyboard */; };
@@ -32,8 +50,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		006C3DFF7FDFB742E81304F4 /* Pods-DeliveryHair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryHair.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryHair/Pods-DeliveryHair.release.xcconfig"; sourceTree = "<group>"; };
+		6850D08E546DA95BB5268054 /* Pods_DeliveryHair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryHair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0674AB8AD5090F98C9FC72 /* Pods-DeliveryHair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryHair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryHair/Pods-DeliveryHair.debug.xcconfig"; sourceTree = "<group>"; };
+		DF15659121FF5290009CFC19 /* RegisterAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressVC.swift; sourceTree = "<group>"; };
+		DF15659321FF54C2009CFC19 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		DF19301721F5F33B00C1A3EA /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		DF60F02621F883E8005306BD /* NumberExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExt.swift; sourceTree = "<group>"; };
+		DF60F02921F8A22D005306BD /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		DF60F02A21F8A22D005306BD /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		DF60F02B21F8A22D005306BD /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		DF60F02C21F8A22D005306BD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		DF79A79121FDC5A40026B857 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		DF79A79321FDCBD00026B857 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		DF79A79521FDCD250026B857 /* StoryboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExt.swift; sourceTree = "<group>"; };
+		DF79A79721FDD69A0026B857 /* DeliveryHairTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHairTextField.swift; sourceTree = "<group>"; };
+		DF79A79921FDD8EA0026B857 /* DeliveryHairButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHairButton.swift; sourceTree = "<group>"; };
+		DF79A79B21FDD9BF0026B857 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DF79A79E21FDDB380026B857 /* RoundContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundContainerView.swift; sourceTree = "<group>"; };
+		DF79A7A021FDE60A0026B857 /* grapedragon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = grapedragon.ttf; sourceTree = "<group>"; };
+		DF79A7C221FF37C60026B857 /* LoginBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBaseVC.swift; sourceTree = "<group>"; };
+		DF79A7C521FF42BC0026B857 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		DF79A7C921FF46AA0026B857 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		DF99D58B21EF92BE00D03913 /* DeliveryHair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryHair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF99D58E21EF92BE00D03913 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF99D59021EF92BE00D03913 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -63,12 +101,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3273C09F1851F2300006D35 /* Pods_DeliveryHair.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E73AF8A63AC7D32528EFD2C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A0674AB8AD5090F98C9FC72 /* Pods-DeliveryHair.debug.xcconfig */,
+				006C3DFF7FDFB742E81304F4 /* Pods-DeliveryHair.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6EEAE3BED4006A0488ECB0F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6850D08E546DA95BB5268054 /* Pods_DeliveryHair.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DF19301521F5F31100C1A3EA /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,11 +134,67 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		DF60F02821F8A200005306BD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DF79A7A021FDE60A0026B857 /* grapedragon.ttf */,
+				DF60F02A21F8A22D005306BD /* Roboto-Bold.ttf */,
+				DF60F02921F8A22D005306BD /* Roboto-Italic.ttf */,
+				DF60F02B21F8A22D005306BD /* Roboto-Medium.ttf */,
+				DF60F02C21F8A22D005306BD /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DF79A78E21FDC58B0026B857 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DF79A79021FDC5990026B857 /* View */,
+				DF79A78F21FDC5940026B857 /* UI */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DF79A78F21FDC5940026B857 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DF79A79121FDC5A40026B857 /* Login.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DF79A79021FDC5990026B857 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF79A7C221FF37C60026B857 /* LoginBaseVC.swift */,
+				DF79A79321FDCBD00026B857 /* LoginVC.swift */,
+				DF79A7C521FF42BC0026B857 /* RegisterVC.swift */,
+				DF15659121FF5290009CFC19 /* RegisterAddressVC.swift */,
+				DF79A7C921FF46AA0026B857 /* ForgotPasswordVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF79A79D21FDD9E20026B857 /* CustomControlsDesigns */ = {
+			isa = PBXGroup;
+			children = (
+				DF99D5B421EFEA4200D03913 /* CustomSegmentedControl.swift */,
+				DFC58C3E21F62EBD00E217A2 /* GradientView.swift */,
+				DF79A79721FDD69A0026B857 /* DeliveryHairTextField.swift */,
+				DF79A79921FDD8EA0026B857 /* DeliveryHairButton.swift */,
+				DF79A79B21FDD9BF0026B857 /* CustomButton.swift */,
+				DF79A79E21FDDB380026B857 /* RoundContainerView.swift */,
+			);
+			path = CustomControlsDesigns;
+			sourceTree = "<group>";
+		};
 		DF99D58221EF92BE00D03913 = {
 			isa = PBXGroup;
 			children = (
 				DF99D58D21EF92BE00D03913 /* DeliveryHair */,
 				DF99D58C21EF92BE00D03913 /* Products */,
+				0E73AF8A63AC7D32528EFD2C /* Pods */,
+				6EEAE3BED4006A0488ECB0F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +223,7 @@
 		DF99D5AE21EFE9BD00D03913 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DF79A78E21FDC58B0026B857 /* Login */,
 				DF19301521F5F31100C1A3EA /* Menu */,
 				DF99D5AF21EFE9C300D03913 /* Home */,
 			);
@@ -141,6 +254,7 @@
 		DF99D5B121EFE9E800D03913 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DF60F02821F8A200005306BD /* Fonts */,
 				DFF5B57721F610EB00B726F1 /* Loading */,
 				DF99D5BC21F008C500D03913 /* Services */,
 				DF99D59821EF92C000D03913 /* Assets.xcassets */,
@@ -154,8 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				DF99D5B621EFEF0C00D03913 /* Extensions */,
-				DF99D5B421EFEA4200D03913 /* CustomSegmentedControl.swift */,
-				DFC58C3E21F62EBD00E217A2 /* GradientView.swift */,
+				DF79A79D21FDD9E20026B857 /* CustomControlsDesigns */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -167,6 +280,8 @@
 				DF99D5C121F00D4C00D03913 /* StringExt.swift */,
 				DFC58C4221F63D9800E217A2 /* ViewExt.swift */,
 				DF60F02621F883E8005306BD /* NumberExt.swift */,
+				DF79A79521FDCD250026B857 /* StoryboardExt.swift */,
+				DF15659321FF54C2009CFC19 /* UIImage+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,10 +349,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF99D5A021EF92C000D03913 /* Build configuration list for PBXNativeTarget "DeliveryHair" */;
 			buildPhases = (
+				11A3F6753CF4CC8123737A35 /* [CP] Check Pods Manifest.lock */,
 				DF99D58721EF92BE00D03913 /* Sources */,
 				DF99D58821EF92BE00D03913 /* Frameworks */,
 				DF99D58921EF92BE00D03913 /* Resources */,
 				DF99D5A321EF930600D03913 /* Build number incrementor */,
+				6829951DEF3C2050E420CD53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,15 +404,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF99D59C21EF92C000D03913 /* LaunchScreen.storyboard in Resources */,
+				DF79A7A121FDE60A0026B857 /* grapedragon.ttf in Resources */,
 				DF19301921F5F33B00C1A3EA /* MenuView.xib in Resources */,
+				DF60F03021F8A22D005306BD /* Roboto-Regular.ttf in Resources */,
+				DF60F02E21F8A22D005306BD /* Roboto-Bold.ttf in Resources */,
+				DF60F02F21F8A22D005306BD /* Roboto-Medium.ttf in Resources */,
+				DF60F02D21F8A22D005306BD /* Roboto-Italic.ttf in Resources */,
 				DF99D59921EF92C000D03913 /* Assets.xcassets in Resources */,
 				DF99D59421EF92BE00D03913 /* Main.storyboard in Resources */,
+				DF79A79221FDC5A40026B857 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		11A3F6753CF4CC8123737A35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DeliveryHair-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6829951DEF3C2050E420CD53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DeliveryHair/Pods-DeliveryHair-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeliveryHair/Pods-DeliveryHair-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DF99D5A321EF930600D03913 /* Build number incrementor */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,23 +491,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF99D59721EF92BF00D03913 /* DeliveryHair.xcdatamodeld in Sources */,
+				DF79A79F21FDDB380026B857 /* RoundContainerView.swift in Sources */,
 				DF99D5B821EFEF1F00D03913 /* ColorExt.swift in Sources */,
 				DF60F02721F883E8005306BD /* NumberExt.swift in Sources */,
+				DF79A79421FDCBD00026B857 /* LoginVC.swift in Sources */,
+				DF15659221FF5290009CFC19 /* RegisterAddressVC.swift in Sources */,
 				DFC58C4321F63D9800E217A2 /* ViewExt.swift in Sources */,
+				DF79A7C321FF37C60026B857 /* LoginBaseVC.swift in Sources */,
 				DFC58C3F21F62EBD00E217A2 /* GradientView.swift in Sources */,
 				DF99D59121EF92BE00D03913 /* MainVC.swift in Sources */,
 				DF99D5A921EFA12A00D03913 /* ItemCell.swift in Sources */,
 				DF99D5AB21EFA35500D03913 /* ItemMainCell.swift in Sources */,
 				DF99D58F21EF92BE00D03913 /* AppDelegate.swift in Sources */,
 				DFC58C4121F6327100E217A2 /* Constants.swift in Sources */,
+				DF15659421FF54C2009CFC19 /* UIImage+Ext.swift in Sources */,
 				DF99D5A521EF965900D03913 /* MainCell.swift in Sources */,
 				DFF5B57621F5FFF700B726F1 /* MenuView.swift in Sources */,
 				DF99D5BB21F0060800D03913 /* Product.swift in Sources */,
 				DF99D5A721EF990800D03913 /* CarouselCell.swift in Sources */,
+				DF79A79A21FDD8EA0026B857 /* DeliveryHairButton.swift in Sources */,
+				DF79A79821FDD69A0026B857 /* DeliveryHairTextField.swift in Sources */,
+				DF79A79C21FDD9BF0026B857 /* CustomButton.swift in Sources */,
 				DF99D5B521EFEA4200D03913 /* CustomSegmentedControl.swift in Sources */,
+				DF79A7CA21FF46AA0026B857 /* ForgotPasswordVC.swift in Sources */,
+				DF79A79621FDCD250026B857 /* StoryboardExt.swift in Sources */,
 				DF99D5C221F00D4C00D03913 /* StringExt.swift in Sources */,
 				DF99D5BE21F008D200D03913 /* ProductServices.swift in Sources */,
 				DFF5B57921F6110E00B726F1 /* LoadingVC.swift in Sources */,
+				DF79A7C621FF42BC0026B857 /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +662,7 @@
 		};
 		DF99D5A121EF92C000D03913 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A0674AB8AD5090F98C9FC72 /* Pods-DeliveryHair.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -500,6 +681,7 @@
 		};
 		DF99D5A221EF92C000D03913 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 006C3DFF7FDFB742E81304F4 /* Pods-DeliveryHair.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
