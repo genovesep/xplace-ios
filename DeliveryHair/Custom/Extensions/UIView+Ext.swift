@@ -16,13 +16,20 @@ extension UIView {
         layer.mask = mask
     }
     
-    func applyGradient(colours: [UIColor]) -> CAGradientLayer {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = self.bounds
-        gradient.colors = colours.map { $0.cgColor }
+    func setGradient(colors: [UIColor]) {
+        layer.sublayers?.forEach({ (layer) in
+            if layer.isKind(of: CAGradientLayer.self) {
+                layer.removeFromSuperlayer()
+            }
+        })
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.colors = [colors[0].cgColor, colors[1].cgColor]
         gradient.locations = nil
-        gradient.cornerRadius = gradient.frame.height/2
-        return gradient
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
+        layer.insertSublayer(gradient, at: 0)
     }
 }
 

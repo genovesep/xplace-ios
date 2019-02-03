@@ -15,15 +15,14 @@ class LoginVC: LoginBaseVC {
     @IBOutlet weak var usernameTextField: DeliveryHairTextField!
     @IBOutlet weak var passwordTextField: DeliveryHairTextField!
     @IBOutlet weak var titleLeadConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dhLoginButton: DeliveryHairButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-
+    
     private func setupView() {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
         usernameTextField.delegate = self
         
         let attributedString = NSMutableAttributedString(string: "DeliveryHair")
@@ -51,7 +50,7 @@ extension LoginVC {
     
     @IBAction func didPressBackButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 

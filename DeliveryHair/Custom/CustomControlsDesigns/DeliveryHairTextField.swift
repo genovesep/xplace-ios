@@ -23,8 +23,8 @@ class DeliveryHairTextField: UITextField {
     }
     
     private func setupView() {
-        tintColor = UIColor.VisualIdentity.darkPink
-        layer.borderColor = UIColor.VisualIdentity.darkPink.cgColor
+        tintColor = Colors.darkPink
+        layer.borderColor = Colors.darkPink.cgColor
         layer.borderWidth = 3
         layer.cornerRadius = 8
         
@@ -54,7 +54,7 @@ class DeliveryHairTextField: UITextField {
         let padding = UIEdgeInsets(top: 0.0,
                                    left: 10.0,
                                    bottom: 0.0,
-                                   right: rightView!.frame.width + 15
+                                   right: rightView?.frame.width ?? 0 + 15
         )
         return bounds.inset(by: padding)
     }
@@ -63,7 +63,7 @@ class DeliveryHairTextField: UITextField {
         let padding = UIEdgeInsets(top: 0.0,
                                    left: 10.0,
                                    bottom: 0.0,
-                                   right: rightView!.frame.width + 15
+                                   right: rightView?.frame.width ?? 0 + 15
         )
         return bounds.inset(by: padding)
     }

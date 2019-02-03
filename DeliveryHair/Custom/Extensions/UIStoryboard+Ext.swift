@@ -15,10 +15,22 @@ extension UIStoryboard {
         return UIStoryboard(name: "Login", bundle: Bundle.main)
     }
     
+    private static var ProductDetailStb: UIStoryboard {
+        return UIStoryboard(name: "ProductDetail", bundle: Bundle.main)
+    }
+    
     enum ViewController {
         
         static var loginVC: LoginVC {
             return UIStoryboard.LoginStb.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        }
+        
+        static var ProductDetailVC: ProductDetailVC {
+            return UIStoryboard.ProductDetailStb.instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailVC
+        }
+        
+        static var SelectionVC: SelectionVC {
+            return UIStoryboard.ProductDetailStb.instantiateViewController(withIdentifier: "SelectionVC") as! SelectionVC
         }
         
     }

@@ -34,5 +34,9 @@ extension UIImage {
         static var icon_arrow_back: UIImage? {
             return UIImage(named: "icon-arrow-back")
         }
+        
+        static var icon_detail_arrow_left: UIImage? {
+            return UIImage(named: "icon-detail-arrow-left")
+        }
     }
 }

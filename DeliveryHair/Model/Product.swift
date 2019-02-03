@@ -8,20 +8,56 @@
 
 import Foundation
 
-class Product: Decodable {
-    let productId: Int
-    let productName, productDescription: String
-    let productVendorId: Int
-    let productImages: ProductImages
-    let productPrice, productManageStockQty: String
-    let productCategorys: [ProductCategorys]
+class Product: Codable {
+    public private(set) var productId: Int
+    public private(set) var productName, productDescription: String
+    public private(set) var productVendorId: Int
+    public private(set) var productImages: ProductImages?
+    public private(set) var productPrice: String
+    public private(set) var productManageStockQty: String
+    public private(set) var productCategorys: [ProductCategorys]
+    public private(set) var productSizes: [ProductSize]
+    public private(set) var productColors: [ProductColors]
+    public private(set) var productQtt: Int?
+    
+    init() {
+        productId = 0
+        productName = ""
+        productDescription = ""
+        productVendorId = 0
+        productImages = nil
+        productPrice = ""
+        productManageStockQty = ""
+        productCategorys = []
+        productSizes = []
+        productColors = []
+        productQtt = 0
+    }
+    
+    func setProdQtt(withCount count: Int) {
+        if let _ = productQtt {
+            productQtt!+=count
+        } else {
+            productQtt = count
+        }
+    }
 }
 
-struct ProductImages: Decodable {
+struct ProductImages: Codable {
     let productImage,shopBannerImage: String
 }
 
-struct ProductCategorys: Decodable {
+struct ProductCategorys: Codable {
     let termId: Int
     let name, slug: String
+}
+
+struct ProductSize: Codable {
+    let termId: Int
+    let name: String
+}
+
+struct ProductColors: Codable {
+    let termId: Int
+    let name: String
 }

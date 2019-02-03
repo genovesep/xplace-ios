@@ -11,10 +11,15 @@ import UIKit
 class ForgotPasswordVC: LoginBaseVC {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dhResetPasswordButton: DeliveryHairButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        //dhResetPasswordButton.enableButton()
     }
     
     func setupView() {

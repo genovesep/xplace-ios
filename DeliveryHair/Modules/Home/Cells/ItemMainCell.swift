@@ -16,6 +16,8 @@ class ItemMainCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    weak var delegate: MainVC?
+    
     var localProductArr: [Product] = []
     
     func customInit() {
@@ -42,17 +44,20 @@ extension ItemMainCell: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        switch UIScreen.main.bounds.height {
-        case 568:
+        switch GenericMethods.sharedInstance.getDevice() {
+        case .iPhone_SE:
             return CGSize(width: 150, height: 230)
-        case 667:
+        case .iPhone_8:
             return CGSize(width: 180, height: 280)
-        case 736:
+        case .iPhone_8_Plus:
             return CGSize(width: 197, height: 303)
-        case 812:
-            return CGSize(width: 180, height: 280)
-        default:
+        case .iPhone_X:
             return CGSize(width: 180, height: 280)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = localProductArr[indexPath.item]
+        delegate?.goToDetail(forProduct: product)
     }
 }

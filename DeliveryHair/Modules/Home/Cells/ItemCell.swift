@@ -25,11 +25,13 @@ class ItemCell: UICollectionViewCell {
         cellContainer.layer.shadowRadius = 2
         cellContainer.layer.shadowOffset = CGSize(width: 0, height: 0)
         
-        imageView.image = nil
-        let urlString = String.Services.host + product.productImages.productImage
-        guard let url = URL(string: urlString) else { return }
-        let resource = ImageResource(downloadURL: url)
-        imageView.kf.setImage(with: resource)
+        if let pImage = product.productImages {
+            imageView.image = nil
+            let urlString = String.Services.host + pImage.productImage
+            guard let url = URL(string: urlString) else { return }
+            let resource = ImageResource(downloadURL: url)
+            imageView.kf.setImage(with: resource)
+        }
     }
 }
 

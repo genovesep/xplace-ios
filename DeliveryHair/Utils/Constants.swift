@@ -16,3 +16,7 @@ let kIsLoggedIn = "UserIsLoggedIn"
 let kSegueToRegisterVC = "toRegisterVC"
 let kSegueToForgetPasswordVC = "toForgetPasswordVC"
 let kSegueToRegisterAddressVC = "toRegisterAddressVC"
+
+// CELL IDENTIFIER
+let kMainCell = "MainCell"
+let kItemMainCell = "ItemMainCell"

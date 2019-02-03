@@ -15,11 +15,11 @@ class LoginBaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     func setBackground() {
-        topView.backgroundColor = UIColor.VisualIdentity.darkPink
+        topView.backgroundColor = Colors.darkPink
         view.addSubview(topView)
         view.sendSubviewToBack(topView)
         

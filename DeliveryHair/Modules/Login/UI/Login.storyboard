@@ -53,7 +53,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="goB-gu-qBS"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <state key="normal" title="ENTRAR"/>
+                                                        <state key="normal" title="ENTRAR">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                     </button>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWH-DS-Xd8" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="100" width="295" height="60"/>
@@ -181,6 +183,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="fH0-rR-RCh" id="dUy-BE-W0H"/>
+                        <outlet property="dhLoginButton" destination="VXc-vm-IQH" id="5nX-kJ-uxZ"/>
                         <outlet property="passwordTextField" destination="JWH-DS-Xd8" id="DpC-Os-pfo"/>
                         <outlet property="titleLabel" destination="6pS-zZ-4Wx" id="ZIF-c0-CrL"/>
                         <outlet property="titleLeadConstraint" destination="7IN-PF-BII" id="Lgv-Tc-CiE"/>
@@ -225,7 +228,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="15Z-NO-5ge"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <state key="normal" title="CADASTRAR"/>
+                                                        <state key="normal" title="CADASTRAR">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="didPressRegisterButton:" destination="wXw-6w-LeG" eventType="touchUpInside" id="i0y-ga-luL"/>
                                                         </connections>
@@ -352,6 +357,7 @@
                         <viewLayoutGuide key="safeArea" id="f4C-98-rou"/>
                     </view>
                     <connections>
+                        <outlet property="dhRegisterButton" destination="6U1-u3-PYt" id="zyI-1I-pN5"/>
                         <outlet property="titleLabel" destination="YRX-4G-ce9" id="vSO-wG-fgw"/>
                         <segue destination="KqG-aN-bek" kind="show" identifier="toRegisterAddressVC" id="WXa-yD-5N3"/>
                     </connections>
@@ -401,7 +407,9 @@
                                                             <constraint firstAttribute="height" constant="50" id="zC1-a6-irz"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <state key="normal" title="RESETAR"/>
+                                                        <state key="normal" title="RESETAR">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número de celular" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dc6-cW-d5u" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="30" width="295" height="60"/>
@@ -498,6 +506,7 @@
                         <viewLayoutGuide key="safeArea" id="aqX-9f-pUA"/>
                     </view>
                     <connections>
+                        <outlet property="dhResetPasswordButton" destination="7HN-8l-lvx" id="2AF-sy-3X3"/>
                         <outlet property="titleLabel" destination="fbl-jO-CPb" id="aom-jr-HAv"/>
                     </connections>
                 </viewController>
@@ -517,12 +526,12 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIj-Ry-9fA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="977"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="934"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmE-8C-LAH" customClass="RoundContainerView" customModule="DeliveryHair" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="227" width="335" height="650"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cep" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5P-sU-Z15" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cep" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5P-sU-Z15" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="20" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="YfM-RA-5Yx"/>
@@ -537,9 +546,11 @@
                                                             <constraint firstAttribute="height" constant="50" id="FNa-dC-lVR"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
-                                                        <state key="normal" title="CADASTRAR"/>
+                                                        <state key="normal" title="CADASTRAR">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UF" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n24-SF-Hp8" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UF" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n24-SF-Hp8" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="100" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="0b0-8v-OSR"/>
@@ -548,7 +559,7 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cidade" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yGY-rg-fii" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cidade" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yGY-rg-fii" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="180" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="IT2-F2-aM9"/>
@@ -557,7 +568,7 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bairro" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWv-zj-MHX" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bairro" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWv-zj-MHX" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="260" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="UKS-p5-2NU"/>
@@ -566,7 +577,7 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Logradouro" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfK-ud-8wV" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Logradouro" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfK-ud-8wV" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="340" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="cyr-3I-eQY"/>
@@ -575,11 +586,11 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="gTL-RK-gFL">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gTL-RK-gFL">
                                                         <rect key="frame" x="20" y="420" width="295" height="60"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Complemento" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-lj-MtE" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="172.33333333333334" height="60"/>
+                                                            <textField opaque="NO" tag="-1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Complemento" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-lj-MtE" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="214.33333333333334" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="6ZE-21-8nf"/>
                                                                 </constraints>
@@ -587,7 +598,7 @@
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xln-fr-P3I" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                            <textField opaque="NO" tag="-1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xln-fr-P3I" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                                 <rect key="frame" x="219.33333333333329" y="0.0" width="75.666666666666657" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="VIl-Su-6Rc"/>
@@ -598,7 +609,7 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Referencia" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uah-oO-MwC" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Referencia" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uah-oO-MwC" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="500" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="oh0-7l-Kj9"/>
@@ -686,7 +697,7 @@
                                             <constraint firstAttribute="trailing" secondItem="kmE-8C-LAH" secondAttribute="trailing" constant="20" id="m4b-cg-Nen"/>
                                             <constraint firstItem="UsK-Wh-MOH" firstAttribute="leading" secondItem="sIj-Ry-9fA" secondAttribute="leading" constant="10" id="ux6-Lk-Nhm"/>
                                             <constraint firstItem="1zS-ZG-Dmn" firstAttribute="centerX" secondItem="sIj-Ry-9fA" secondAttribute="centerX" id="vXb-uO-AXO"/>
-                                            <constraint firstAttribute="bottom" secondItem="kmE-8C-LAH" secondAttribute="bottom" constant="100" id="xQy-Zd-F4r"/>
+                                            <constraint firstAttribute="bottom" secondItem="kmE-8C-LAH" secondAttribute="bottom" constant="57" id="xQy-Zd-F4r"/>
                                             <constraint firstItem="JTD-Vu-wxC" firstAttribute="top" secondItem="1zS-ZG-Dmn" secondAttribute="bottom" constant="10" id="zyM-fJ-b3R"/>
                                         </constraints>
                                     </view>
@@ -712,6 +723,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="dhRegisterButton" destination="PZv-Gh-N2c" id="SOu-Cb-K6E"/>
                         <outlet property="titleLabel" destination="1zS-ZG-Dmn" id="qeZ-AG-YN2"/>
                     </connections>
                 </viewController>

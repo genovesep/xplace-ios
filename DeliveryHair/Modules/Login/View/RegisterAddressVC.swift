@@ -8,13 +8,18 @@
 
 import UIKit
 
-class RegisterAddressVC: UIViewController {
+class RegisterAddressVC: LoginBaseVC {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dhRegisterButton: DeliveryHairButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        //dhRegisterButton.enableButton()
     }
     
     func setupView() {
