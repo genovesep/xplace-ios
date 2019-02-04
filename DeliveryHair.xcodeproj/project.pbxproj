@@ -15,6 +15,7 @@
 		DF2D059F220689FF00F8AD45 /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D059E220689FF00F8AD45 /* CellIdentifier.swift */; };
 		DF2D05A222068A6D00F8AD45 /* VolumesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D05A122068A6D00F8AD45 /* VolumesCell.swift */; };
 		DF2D05A422068A7C00F8AD45 /* CheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D05A322068A7C00F8AD45 /* CheckCell.swift */; };
+		DF2D05A62208552700F8AD45 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D05A52208552700F8AD45 /* CustomSegmentedControl.swift */; };
 		DF60F02721F883E8005306BD /* Numbers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60F02621F883E8005306BD /* Numbers+Ext.swift */; };
 		DF60F02D21F8A22D005306BD /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02921F8A22D005306BD /* Roboto-Italic.ttf */; };
 		DF60F02E21F8A22D005306BD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02A21F8A22D005306BD /* Roboto-Bold.ttf */; };
@@ -45,7 +46,6 @@
 		DF99D5A721EF990800D03913 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5A621EF990800D03913 /* CarouselCell.swift */; };
 		DF99D5A921EFA12A00D03913 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5A821EFA12A00D03913 /* ItemCell.swift */; };
 		DF99D5AB21EFA35500D03913 /* ItemMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5AA21EFA35500D03913 /* ItemMainCell.swift */; };
-		DF99D5B521EFEA4200D03913 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5B421EFEA4200D03913 /* CustomSegmentedControl.swift */; };
 		DF99D5B821EFEF1F00D03913 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5B721EFEF1F00D03913 /* Color+Ext.swift */; };
 		DF99D5BB21F0060800D03913 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5BA21F0060800D03913 /* Product.swift */; };
 		DF99D5BE21F008D200D03913 /* ProductServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5BD21F008D200D03913 /* ProductServices.swift */; };
@@ -68,6 +68,7 @@
 		DF2D059E220689FF00F8AD45 /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 		DF2D05A122068A6D00F8AD45 /* VolumesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumesCell.swift; sourceTree = "<group>"; };
 		DF2D05A322068A7C00F8AD45 /* CheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCell.swift; sourceTree = "<group>"; };
+		DF2D05A52208552700F8AD45 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		DF60F02621F883E8005306BD /* Numbers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Ext.swift"; sourceTree = "<group>"; };
 		DF60F02921F8A22D005306BD /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		DF60F02A21F8A22D005306BD /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		DF99D5A621EF990800D03913 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		DF99D5A821EFA12A00D03913 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		DF99D5AA21EFA35500D03913 /* ItemMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMainCell.swift; sourceTree = "<group>"; };
-		DF99D5B421EFEA4200D03913 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		DF99D5B721EFEF1F00D03913 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		DF99D5BA21F0060800D03913 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		DF99D5BD21F008D200D03913 /* ProductServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServices.swift; sourceTree = "<group>"; };
@@ -230,12 +230,12 @@
 		DF79A79D21FDD9E20026B857 /* CustomControlsDesigns */ = {
 			isa = PBXGroup;
 			children = (
-				DF99D5B421EFEA4200D03913 /* CustomSegmentedControl.swift */,
 				DFC58C3E21F62EBD00E217A2 /* GradientView.swift */,
 				DF79A79721FDD69A0026B857 /* DeliveryHairTextField.swift */,
 				DF79A79921FDD8EA0026B857 /* DeliveryHairButton.swift */,
 				DF79A79B21FDD9BF0026B857 /* CustomButton.swift */,
 				DF79A79E21FDDB380026B857 /* RoundContainerView.swift */,
+				DF2D05A52208552700F8AD45 /* CustomSegmentedControl.swift */,
 			);
 			path = CustomControlsDesigns;
 			sourceTree = "<group>";
@@ -564,6 +564,7 @@
 				DF79A7C321FF37C60026B857 /* LoginBaseVC.swift in Sources */,
 				DFC58C3F21F62EBD00E217A2 /* GradientView.swift in Sources */,
 				DF99D59121EF92BE00D03913 /* MainVC.swift in Sources */,
+				DF2D05A62208552700F8AD45 /* CustomSegmentedControl.swift in Sources */,
 				DF99D5A921EFA12A00D03913 /* ItemCell.swift in Sources */,
 				DF99D5AB21EFA35500D03913 /* ItemMainCell.swift in Sources */,
 				DF99D58F21EF92BE00D03913 /* AppDelegate.swift in Sources */,
@@ -575,7 +576,6 @@
 				DF79A79A21FDD8EA0026B857 /* DeliveryHairButton.swift in Sources */,
 				DF79A79821FDD69A0026B857 /* DeliveryHairTextField.swift in Sources */,
 				DF79A79C21FDD9BF0026B857 /* CustomButton.swift in Sources */,
-				DF99D5B521EFEA4200D03913 /* CustomSegmentedControl.swift in Sources */,
 				DF79A7CA21FF46AA0026B857 /* ForgotPasswordVC.swift in Sources */,
 				DF79A79621FDCD250026B857 /* UIStoryboard+Ext.swift in Sources */,
 				DF2D05A222068A6D00F8AD45 /* VolumesCell.swift in Sources */,

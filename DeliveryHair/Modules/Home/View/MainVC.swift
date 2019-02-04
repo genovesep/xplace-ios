@@ -18,9 +18,9 @@ class MainVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuContainerView: MenuView!
     @IBOutlet weak var menuLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var segmentedView: UIView!
     @IBOutlet weak var containerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var segmentedControl: CustomSegmentedControl!
     
     var localProductArr: [Product] = []
     var filteredProductArr: [Product] = []
@@ -42,23 +42,10 @@ class MainVC: UIViewController {
     
     func setupView() {
         loadProducts()
-        
+        navigationController?.navigationBar.backgroundColor = Colors.darkPink
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        
-        DispatchQueue.main.async {
-            self.codeSegmented = CustomSegmentedControl(frame: self.segmentedView.bounds, buttonTitle: ["TODOS", "PROFISSIONAL", "CLIENTE"])
-            self.codeSegmented?.backgroundColor = .clear
-            self.codeSegmented?.delegate = self
-            for subview in self.segmentedView.subviews {
-                if subview.isKind(of: CustomSegmentedControl.self) {
-                    subview.removeFromSuperview()
-                }
-            }
-            self.segmentedView.addSubview(self.codeSegmented ?? UIView())
-            self.segmentedView.isHidden = false
-        }
     }
     
     func loadProducts() {
@@ -101,8 +88,6 @@ class MainVC: UIViewController {
         let vc = UIStoryboard.ViewController.ProductDetailVC
         vc.product = product
         navigationController?.pushViewController(vc, animated: true)
-        filteredProductArr = []
-        tableView.reloadData()
     }
     
     // actions
@@ -110,13 +95,10 @@ class MainVC: UIViewController {
         toggleMenuShowHide()
     }
     
-}
-
-extension MainVC: CustomSegmentedControlDelegate {
-    func changeToIndex(index: Int) {
-        selectedIndex = index
+    @IBAction func customSegmentValueChanged(_ sender: CustomSegmentedControl) {
+        selectedIndex = sender.selectedSegmentIndex
         filteredProductArr = []
-        switch index {
+        switch sender.selectedSegmentIndex {
         case 0:
             filteredProductArr = []
         case 1:

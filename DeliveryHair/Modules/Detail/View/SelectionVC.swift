@@ -84,7 +84,7 @@ extension SelectionVC {
     @IBAction func addToCartButtonTapped(_ sender: UIButton) {
         for controller in (navigationController?.viewControllers)! {
             if controller.isKind(of: MainVC.self) {
-                navigationController?.setNavigationBarHidden(false, animated: false)
+                navigationController?.setNavigationBarHidden(false, animated: true)
                 navigationController?.popToViewController(controller, animated: true)
             }
         }

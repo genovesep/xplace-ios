@@ -42,7 +42,7 @@
                                                             <segue destination="z8w-uL-tiS" kind="embed" id="fuD-D0-JyR"/>
                                                         </connections>
                                                     </containerView>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kM5-X7-2zm">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kM5-X7-2zm" customClass="CustomSegmentedControl" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="150" width="414" height="60"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -50,16 +50,26 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="value" red="0.81568627449999997" green="0.30588235289999999" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
-                                                                <color key="value" red="0.6588235294" green="0.15686274510000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="value" red="0.6588235294117647" green="0.15686274509803921" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="selectorTextColor">
-                                                                <color key="value" red="1" green="0.0" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="value" red="0.6588235294" green="0.15686274510000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="commaSeperatedButtonTitles" value="TODOS, PROFISSIONAL, CLIENTES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="_borderColor">
+                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="_borderWidth">
+                                                                <real key="value" value="0.0"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="commaSeparatedButtonTitles" value="TODOS,LINHA PROFISSONAL,LINHA CLIENTE"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="customSegmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="9AL-an-0Q1"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -232,7 +242,7 @@
                         <outlet property="containerViewHeightConstraint" destination="Suq-tE-6kd" id="Ugz-sp-WEh"/>
                         <outlet property="menuContainerView" destination="T1R-RV-g4A" id="F5z-ek-X7O"/>
                         <outlet property="menuLeadingConstraint" destination="HLd-Ap-SI4" id="IFL-2i-xzP"/>
-                        <outlet property="segmentedView" destination="kM5-X7-2zm" id="wfn-n0-2tj"/>
+                        <outlet property="segmentedControl" destination="kM5-X7-2zm" id="FeM-y8-o4M"/>
                         <outlet property="tableView" destination="ahB-HV-C0f" id="qAK-iv-wCg"/>
                         <outlet property="tableViewHeightConstraint" destination="DTm-lX-g01" id="Q1t-N0-eKz"/>
                     </connections>
