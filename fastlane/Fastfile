@@ -1,0 +1,69 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform :ios
+
+platform :ios do
+  
+  desc "This lane builds the App"
+  lane :build do
+    build_app(
+      scheme: "DeliveryHair", 
+      workspace: "DeliveryHair.xcworkspace", 
+      include_bitcode: true,
+      clean: true,
+      configuration: "Debug",
+      export_method: "development"
+    )
+  end
+
+  desc "Code signin"
+  lane :codeSignDev do 
+    sync_code_signing(
+      type: "development",
+      username: "lazaro.shev@gmail.com",
+      keychain_password: "Gftgft1308" 
+    )
+  end
+
+  lane :codeSignProd do 
+    sync_code_signing(
+      type: "appstore",
+      username: "lazaro.shev@gmail.com",
+      keychain_password: "Gftgft1308" 
+    )
+  end
+
+  lane :dev do 
+     sync_code_signing(
+      type: "development",
+      username: "lazaro.shev@gmail.com",
+      keychain_password: "Gftgft1308" 
+    )
+    build_app(
+      scheme: "DeliveryHair", 
+      workspace: "DeliveryHair.xcworkspace", 
+      include_bitcode: true,
+      clean: true,
+      configuration: "Debug",
+      export_method: "development"
+    )
+    hockey(
+      api_token: "7bc6849675204404a42df974c0ad8d6b",
+      notes: "this build was uploaded with fatlane!"
+    )
+  end
+
+end

@@ -785,7 +785,7 @@
 			baseConfigurationReference = 6A0674AB8AD5090F98C9FC72 /* Pods-DeliveryHair.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N985P6XMY5;
 				INFOPLIST_FILE = DeliveryHair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -794,6 +794,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.xsistemas.DeliveryHair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development br.com.xsistemas.DeliveryHair";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -804,7 +805,8 @@
 			baseConfigurationReference = 006C3DFF7FDFB742E81304F4 /* Pods-DeliveryHair.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N985P6XMY5;
 				INFOPLIST_FILE = DeliveryHair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -813,6 +815,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.xsistemas.DeliveryHair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.xsistemas.DeliveryHair";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

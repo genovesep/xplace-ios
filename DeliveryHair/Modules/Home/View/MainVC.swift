@@ -41,7 +41,7 @@ class MainVC: UIViewController {
         
         // REMOVER 
         let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier)
-        print("CART ITEMS: ", cart)
+        print("CART ITEMS: ", cart ?? 0)
     }
     
     func setupView() {
