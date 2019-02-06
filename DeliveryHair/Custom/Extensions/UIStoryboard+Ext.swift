@@ -19,6 +19,10 @@ extension UIStoryboard {
         return UIStoryboard(name: "ProductDetail", bundle: Bundle.main)
     }
     
+    private static var CartStb: UIStoryboard {
+        return UIStoryboard(name: "Cart", bundle: Bundle.main)
+    }
+    
     enum ViewController {
         
         static var loginVC: LoginVC {
@@ -33,5 +37,8 @@ extension UIStoryboard {
             return UIStoryboard.ProductDetailStb.instantiateViewController(withIdentifier: "SelectionVC") as! SelectionVC
         }
         
+        static var cartVC: CartVC {
+            return UIStoryboard.CartStb.instantiateViewController(withIdentifier: "CartVC") as! CartVC
+        }
     }
 }

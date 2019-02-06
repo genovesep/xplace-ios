@@ -31,6 +31,18 @@ extension UIView {
         gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
         layer.insertSublayer(gradient, at: 0)
     }
+    
+    func addBlurView() {
+        let bkgView = UIView(frame: UIScreen.main.bounds)
+        bkgView.backgroundColor = Colors.bkgColor
+        bkgView.layer.opacity = 0.6
+        bkgView.accessibilityIdentifier = "bkgView"
+        self.insertSubview(bkgView, at: 1)
+    }
+    
+    func removeBlurView() {
+        subviews.forEach({ $0.accessibilityIdentifier == "bkgView" ? $0.removeFromSuperview() : () })
+    }
 }
 
 // for custom image caching

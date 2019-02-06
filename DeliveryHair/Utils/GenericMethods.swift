@@ -40,4 +40,13 @@ class GenericMethods {
             return 286
         }
     }
+    
+    func save(cart: Cart) {
+        do {
+            let encoder = try JSONEncoder().encode(cart)
+            UserDefaults.standard.set(encoder, forKey: DefaultsIDs.cartIdentifier)
+        } catch let err {
+            print("FAILED TO ENCODE: ", err.localizedDescription)
+        }
+    }
 }

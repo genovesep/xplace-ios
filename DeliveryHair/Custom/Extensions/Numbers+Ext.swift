@@ -18,3 +18,9 @@ extension Double {
         return formatter.string(from: self as NSNumber)!
     }
 }
+
+extension Int {
+    func toDouble() -> Double {
+        return Double(exactly: self)!
+    }
+}

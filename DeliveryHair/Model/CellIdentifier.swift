@@ -11,4 +11,5 @@ import Foundation
 struct CellIdentifier {
     static let volumesCell  = "VolumesCell"
     static let checkCell    = "CheckCell"
+    static let cartCell     = "CartCell"
 }

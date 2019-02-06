@@ -38,6 +38,10 @@ class MainVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         menuContainerView.delegate = self
+        
+        // REMOVER 
+        let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier)
+        print("CART ITEMS: ", cart)
     }
     
     func setupView() {
@@ -72,6 +76,7 @@ class MainVC: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
         
+        isShowingMenu ? view.removeBlurView() : view.addBlurView()
         isShowingMenu = !isShowingMenu
     }
     
@@ -95,6 +100,11 @@ class MainVC: UIViewController {
         toggleMenuShowHide()
     }
     
+    @IBAction func cartButtonTapped(_ sender: UIButton) {
+        let vc = UIStoryboard.ViewController.cartVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func customSegmentValueChanged(_ sender: CustomSegmentedControl) {
         selectedIndex = sender.selectedSegmentIndex
         filteredProductArr = []
@@ -111,7 +121,7 @@ class MainVC: UIViewController {
                     }
                 }
             }
-        case 2:
+        case 2: 
             localProductArr.forEach { (product) in
                 let category = product.productCategorys
                 if !category.isEmpty {

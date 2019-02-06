@@ -41,12 +41,15 @@ class ProductDetailVC: UIViewController {
         }
     }
     
+    func backVC() {
+        navigationController?.popViewController(animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 
 extension ProductDetailVC {
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        backVC()
     }
     
     @IBAction func addToCartButtonTapped(_ sender: UIButton) {
@@ -62,8 +65,38 @@ extension ProductDetailVC {
                 vc.product = product
                 navigationController?.pushViewController(vc, animated: true)
             } else {
-                // todo - no option left just add the product
+                let item = CartItem(qtt: 1, product: product)
+                
+                do {
+                    guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
+                        print("THERE IS NO CART SAVED")
+                        let cart = Cart.init(products: [item])
+                        try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+                        return
+                    }
+                    
+                    var thisCart = cart
+                    var prodExists = false
+                    
+                    for (index, cartItem) in thisCart.products.enumerated() {
+                        if product.productId == cartItem.product.productId {
+                            thisCart.products[index].qtt+=1
+                            prodExists = true
+                        }
+                    }
+                    
+                    if !prodExists {
+                        thisCart.products.append(CartItem(qtt: 1, product: product))
+                    }
+                    
+                    try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+                
+                backVC()
             }
         }
     }
+    
 }

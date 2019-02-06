@@ -65,9 +65,11 @@ import UIKit
         stackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
-        let selectorWidth = frame.width/CGFloat(buttons.count)
-        selector = UIView(frame: CGRect(x: 0, y: frame.height - 5, width: selectorWidth, height: 5))
+    }
+    
+    override func layoutSubviews() {
+        //let selectorWidth = frame.width/CGFloat(buttons.count)
+        selector = UIView(frame: CGRect(x: 0, y: frame.height - 5, width: buttons[0].frame.width, height: 5))
         selector.backgroundColor = selectorColor
         addSubview(selector)
     }
