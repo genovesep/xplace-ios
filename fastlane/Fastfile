@@ -17,35 +17,6 @@ default_platform :ios
 
 platform :ios do
 
-  desc "This lane builds the App"
-  lane :build do
-    build_app(
-      scheme: "DeliveryHair",
-      workspace: "DeliveryHair.xcworkspace",
-      include_bitcode: true,
-      clean: true,
-      configuration: "Debug",
-      export_method: "development"
-    )
-  end
-
-  desc "Code signin"
-  lane :codeSignDev do
-    sync_code_signing(
-      type: "development",
-      username: "lazaro.shev@gmail.com",
-      keychain_password: "Gftgft1308"
-    )
-  end
-
-  lane :codeSignProd do
-    sync_code_signing(
-      type: "appstore",
-      username: "lazaro.shev@gmail.com",
-      keychain_password: "Gftgft1308"
-    )
-  end
-
   lane :dev do
   	register_devices(
       devices_file: "./devices.txt",
@@ -58,8 +29,7 @@ platform :ios do
     )
     sync_code_signing(
       type: "development",
-      username: "lazaro.shev@gmail.com",
-      keychain_password: "Gftgft1308"
+      username: "lazaro.shev@gmail.com"
     )
     increment_build_number
     build_app(
@@ -77,14 +47,20 @@ platform :ios do
   end
 
   lane :prod do
-     sync_code_signing(
-      type: "appstore",
-      username: "lazaro.shev@gmail.com",
-      keychain_password: "Gftgft1308"
+    register_devices(
+      devices_file: "./devices.txt",
+      username: "lazaro.shev@gmail.com"
     )
-    # register_devices(
-    #   devices_file: ""
-    # )
+    get_provisioning_profile(
+      development: true,
+      app_identifier: "br.com.xsistemas.DeliveryHair",
+      username: "lazaro.shev@gmail.com"
+    )
+    sync_code_signing(
+      type: "development",
+      username: "lazaro.shev@gmail.com"
+    )
+    increment_build_number
     build_app(
       scheme: "DeliveryHair",
       workspace: "DeliveryHair.xcworkspace",
