@@ -23,12 +23,16 @@ platform :ios do
   end
 
   lane :get_prov do
+    register_devices(
+      devices_file: "./devices.txt",
+      username: "lazaro.shev@gmail.com"
+    )
     get_provisioning_profile(
       development: true,
       app_identifier: "br.com.xsistemas.DeliveryHair",
       username: "lazaro.shev@gmail.com"
     )
-    get_provisioning_profile(      
+    get_provisioning_profile(
       app_identifier: "br.com.xsistemas.DeliveryHair",
       username: "lazaro.shev@gmail.com"
     )

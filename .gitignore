@@ -23,6 +23,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.mobileprovision
 
 ## Obj-C/Swift specific
 *.hmap
@@ -68,6 +69,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
-
-# .mobileprovision
-*.mobileprovision
+fastlane/README.md
