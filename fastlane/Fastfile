@@ -17,16 +17,14 @@ default_platform :ios
 
 platform :ios do
 
+  desc "this lane retrieves all the certificates"
   lane :init_config do
     match(type: "appstore")
     match(type: "development")
   end
 
+  desc "optional: this lane retrieves all the provisioning profiles"
   lane :get_prov do
-    register_devices(
-      devices_file: "./devices.txt",
-      username: "lazaro.shev@gmail.com"
-    )
     get_provisioning_profile(
       development: true,
       app_identifier: "br.com.xsistemas.DeliveryHair",
@@ -38,7 +36,13 @@ platform :ios do
     )
   end
 
+  desc "this lane updates the provisioning profiles, increment build and
+  release it to hockey app"
   lane :publish_dev do
+    register_devices(
+      devices_file: "./devices.txt",
+      username: "lazaro.shev@gmail.com"
+    )
     sync_code_signing(
       type: "development",
       username: "lazaro.shev@gmail.com"
