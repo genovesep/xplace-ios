@@ -21,7 +21,19 @@ platform :ios do
     match(type: "appstore")
     match(type: "development")
   end
-  
+
+  lane :get_prov do
+    get_provisioning_profile(
+      development: true,
+      app_identifier: "br.com.xsistemas.DeliveryHair",
+      username: "lazaro.shev@gmail.com"
+    )
+    get_provisioning_profile(      
+      app_identifier: "br.com.xsistemas.DeliveryHair",
+      username: "lazaro.shev@gmail.com"
+    )
+  end
+
   lane :dev do
     register_devices(
       devices_file: "./devices.txt",
