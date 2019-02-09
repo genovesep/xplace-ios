@@ -53,9 +53,9 @@ platform :ios do
       export_method: "development"
     )
     hockey(
-      api_token: "7bc6849675204404a42df974c0ad8d6b",
+      api_token: "31f01a42db3c4313a5daf3ee5ae9835c",
       notes: "this build was uploaded with fastlane!",
-      notify: 1
+      notify: "1"
     )
   end
 
