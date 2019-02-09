@@ -32,16 +32,28 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-ca-hOV">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
                                                 <subviews>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vB-Hw-HR0">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOg-2f-Xhb">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
-                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <subviews>
+                                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brx-dc-4Lb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                                            </scrollView>
+                                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Br5-rr-Nzg">
+                                                                <rect key="frame" x="187.66666666666666" y="113" width="39" height="37"/>
+                                                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </pageControl>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="150" id="zp6-Tg-lyM"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Br5-rr-Nzg" secondAttribute="bottom" id="EKb-u9-L2U"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Brx-dc-4Lb" secondAttribute="bottom" id="hFU-U5-RP0"/>
+                                                            <constraint firstItem="Brx-dc-4Lb" firstAttribute="top" secondItem="MOg-2f-Xhb" secondAttribute="top" id="nyB-iK-DV8"/>
+                                                            <constraint firstItem="Brx-dc-4Lb" firstAttribute="leading" secondItem="MOg-2f-Xhb" secondAttribute="leading" id="oXF-Wt-fCB"/>
+                                                            <constraint firstItem="Br5-rr-Nzg" firstAttribute="centerX" secondItem="MOg-2f-Xhb" secondAttribute="centerX" id="vUV-cY-RD3"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Brx-dc-4Lb" secondAttribute="trailing" id="xez-Ml-DlN"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <segue destination="z8w-uL-tiS" kind="embed" id="fuD-D0-JyR"/>
-                                                        </connections>
-                                                    </containerView>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kM5-X7-2zm" customClass="CustomSegmentedControl" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="150" width="414" height="60"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,13 +87,13 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="kM5-X7-2zm" secondAttribute="trailing" id="5ei-1v-4Kd"/>
-                                                    <constraint firstItem="3vB-Hw-HR0" firstAttribute="top" secondItem="2Ut-ca-hOV" secondAttribute="top" id="81I-c0-6hz"/>
-                                                    <constraint firstItem="kM5-X7-2zm" firstAttribute="top" secondItem="3vB-Hw-HR0" secondAttribute="bottom" id="f86-Ab-Tvk"/>
+                                                    <constraint firstItem="MOg-2f-Xhb" firstAttribute="top" secondItem="2Ut-ca-hOV" secondAttribute="top" id="Nx8-n3-RXU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MOg-2f-Xhb" secondAttribute="trailing" id="P0D-Bj-5It"/>
+                                                    <constraint firstItem="MOg-2f-Xhb" firstAttribute="leading" secondItem="2Ut-ca-hOV" secondAttribute="leading" id="cb7-C2-lmN"/>
                                                     <constraint firstAttribute="height" constant="210" id="iQB-Tz-RnF"/>
                                                     <constraint firstAttribute="bottom" secondItem="kM5-X7-2zm" secondAttribute="bottom" id="kxg-z2-gKW"/>
-                                                    <constraint firstItem="3vB-Hw-HR0" firstAttribute="leading" secondItem="2Ut-ca-hOV" secondAttribute="leading" id="qRa-g6-Kcq"/>
                                                     <constraint firstItem="kM5-X7-2zm" firstAttribute="leading" secondItem="2Ut-ca-hOV" secondAttribute="leading" id="rmw-Ld-hsT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="3vB-Hw-HR0" secondAttribute="trailing" id="sva-rJ-EKa"/>
+                                                    <constraint firstItem="kM5-X7-2zm" firstAttribute="top" secondItem="MOg-2f-Xhb" secondAttribute="bottom" id="zOV-a1-i2n"/>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ahB-HV-C0f">
@@ -245,6 +257,8 @@
                         <outlet property="containerViewHeightConstraint" destination="Suq-tE-6kd" id="Ugz-sp-WEh"/>
                         <outlet property="menuContainerView" destination="T1R-RV-g4A" id="F5z-ek-X7O"/>
                         <outlet property="menuLeadingConstraint" destination="HLd-Ap-SI4" id="IFL-2i-xzP"/>
+                        <outlet property="pageControl" destination="Br5-rr-Nzg" id="JSR-dD-M5I"/>
+                        <outlet property="scrollView" destination="Brx-dc-4Lb" id="0aV-xV-KZ8"/>
                         <outlet property="segmentedControl" destination="kM5-X7-2zm" id="FeM-y8-o4M"/>
                         <outlet property="tableView" destination="ahB-HV-C0f" id="qAK-iv-wCg"/>
                         <outlet property="tableViewHeightConstraint" destination="DTm-lX-g01" id="Q1t-N0-eKz"/>
@@ -253,14 +267,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="141.29464285714286"/>
-        </scene>
-        <!--Page View Controller-->
-        <scene sceneID="LGk-D4-t9t">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="z8w-uL-tiS" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7sR-rZ-Ojg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1661" y="-46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AqR-Rh-99N">

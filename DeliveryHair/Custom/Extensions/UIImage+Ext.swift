@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 extension UIImage {
     enum Icons {
@@ -38,5 +39,14 @@ extension UIImage {
         static var icon_detail_arrow_left: UIImage? {
             return UIImage(named: "icon-detail-arrow-left")
         }
+    }
+}
+
+extension UIImageView {
+    func downloadImage(fromStringUrl stringUrl: String) {
+        let stringURL = String.Services.host + stringUrl
+        guard let url = URL(string: stringURL) else { return }        
+        let resource = ImageResource(downloadURL: url, cacheKey: stringUrl)
+        self.kf.setImage(with: resource)
     }
 }

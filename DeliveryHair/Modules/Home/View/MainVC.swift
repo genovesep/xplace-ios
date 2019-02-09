@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class MainVC: UIViewController {
     
@@ -21,6 +22,8 @@ class MainVC: UIViewController {
     @IBOutlet weak var containerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var segmentedControl: CustomSegmentedControl!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     var localProductArr: [Product] = []
     var filteredProductArr: [Product] = []
@@ -29,6 +32,9 @@ class MainVC: UIViewController {
     var itemIndexPath: IndexPath!
     var codeSegmented: CustomSegmentedControl?
     var selectedIndex = 0
+    var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+    var carouselImgArr = [String]()
+    var repeatTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +51,16 @@ class MainVC: UIViewController {
     }
     
     func setupView() {
-        loadProducts()
         navigationController?.navigationBar.backgroundColor = Colors.darkPink
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        pageControl.isUserInteractionEnabled = false
+        scrollView.isUserInteractionEnabled = false
+        
+        repeatTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+        
+        loadProducts()
     }
     
     func loadProducts() {
@@ -61,11 +72,44 @@ class MainVC: UIViewController {
                 DispatchQueue.main.async {                    
                     self.localProductArr = productArr                    
                     self.tableView.reloadData()
+                    self.setCarousel()
                 }
             } else {
                 // TODO - treat error
             }
         }
+    }
+    
+    @objc func autoScroll() {
+        let curPage = pageControl.currentPage
+        if curPage == carouselImgArr.count - 1 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            pageControl.currentPage = 0
+        } else {
+            let x = CGFloat(curPage + 1) * scrollView.frame.size.width
+            scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
+            pageControl.currentPage = curPage + 1
+        }
+    }
+    
+    func setCarousel() {
+        carouselImgArr = []
+        localProductArr.forEach { (product) in
+            guard let resp = product.productImages?.productImage else { return }
+            carouselImgArr.append(resp)
+        }
+        pageControl.numberOfPages = carouselImgArr.count
+        for index in 0..<carouselImgArr.count {
+            frame.origin.x = scrollView.frame.size.width * CGFloat(index)
+            frame.size = scrollView.frame.size
+            
+            let imgView = UIImageView(frame: frame)
+            imgView.contentMode = .scaleAspectFit
+            imgView.downloadImage(fromStringUrl: carouselImgArr[index])
+            scrollView.addSubview(imgView)
+        }
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(carouselImgArr.count), height: scrollView.frame.size.height)
+        scrollView.delegate = self
     }
     
     func toggleMenuShowHide() {
@@ -83,9 +127,6 @@ class MainVC: UIViewController {
     func reloadData() {
         let rowToReload = NSIndexPath(row: 0, section: 0)
         tableView.reloadRows(at: [rowToReload as IndexPath], with: .fade)
-        
-        let topIndex = IndexPath(row: 0, section: 0)
-        tableView.scrollToRow(at: topIndex, at: .top, animated: true)
     }
     
     // MARK: delegate
@@ -158,10 +199,14 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let device = GenericMethods.sharedInstance.getDevice()
         if !filteredProductArr.isEmpty {
             let cellHeight = GenericMethods.sharedInstance.getCellHeight(forDevice: device)
-            return CGFloat(cellHeight*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
+            let newCellHeight = CGFloat(cellHeight * filteredProductArr.count.toDouble())
+            tableViewHeightConstraint.constant = newCellHeight - CGFloat(cellHeight)
+            return newCellHeight
         } else {
             let cellHeight = GenericMethods.sharedInstance.getCellHeight(forDevice: device)
-            return CGFloat(cellHeight*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.5))
+            let newCellHeight = CGFloat(cellHeight * localProductArr.count.toDouble())
+            tableViewHeightConstraint.constant = newCellHeight - CGFloat(cellHeight)
+            return newCellHeight
         }
     }
     
@@ -180,14 +225,12 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         cell.customInit()
         return cell
     }
-    
-    override func viewDidLayoutSubviews() {
-        if (localProductArr.count % 2 != 0) || (filteredProductArr.count%2 != 0) {
-            tableViewHeightConstraint.constant = tableView.visibleCells[0].frame.size.height*2
-        } else {
-            tableViewHeightConstraint.constant = tableView.visibleCells[0].frame.size.height
-        }
-        
+}
+
+extension MainVC: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = Int(pageNumber)
     }
 }
 

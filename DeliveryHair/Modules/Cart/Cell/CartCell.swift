@@ -31,6 +31,10 @@ class CartCell: UITableViewCell {
         
         let total = Double(qtt) * Double(product.productPrice)!
         totalLabel.text = total.toLocalCurrency()
+        
+        if let prodImg = product.productImages {
+            productImageView.downloadImage(fromStringUrl: prodImg.productImage)
+        }
     }
 
     override func layoutSubviews() {

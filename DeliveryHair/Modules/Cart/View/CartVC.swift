@@ -22,6 +22,7 @@ class CartVC: UIViewController {
     func setupView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         
         let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier)
