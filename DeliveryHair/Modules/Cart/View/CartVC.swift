@@ -12,7 +12,7 @@ class CartVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var cart: Cart!
+    var cart: Cart?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +36,16 @@ extension CartVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let cart = cart else { return 0 }
         return cart.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cart = cart else { return UITableViewCell() }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.cartCell) as! CartCell
         cell.customInit(forItem: cart.products[indexPath.row])
         cell.delegate = self
-        return cell
+        return cell        
     }
 }

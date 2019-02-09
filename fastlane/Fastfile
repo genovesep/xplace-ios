@@ -16,12 +16,12 @@
 default_platform :ios
 
 platform :ios do
-  
+
   desc "This lane builds the App"
   lane :build do
     build_app(
-      scheme: "DeliveryHair", 
-      workspace: "DeliveryHair.xcworkspace", 
+      scheme: "DeliveryHair",
+      workspace: "DeliveryHair.xcworkspace",
       include_bitcode: true,
       clean: true,
       configuration: "Debug",
@@ -30,31 +30,41 @@ platform :ios do
   end
 
   desc "Code signin"
-  lane :codeSignDev do 
+  lane :codeSignDev do
     sync_code_signing(
       type: "development",
       username: "lazaro.shev@gmail.com",
-      keychain_password: "Gftgft1308" 
+      keychain_password: "Gftgft1308"
     )
   end
 
-  lane :codeSignProd do 
+  lane :codeSignProd do
     sync_code_signing(
       type: "appstore",
       username: "lazaro.shev@gmail.com",
-      keychain_password: "Gftgft1308" 
+      keychain_password: "Gftgft1308"
     )
   end
 
-  lane :dev do 
-     sync_code_signing(
+  lane :dev do
+  	register_devices(
+      devices_file: "./devices.txt",
+      username: "lazaro.shev@gmail.com"
+    )
+    get_provisioning_profile(
+      development: true,
+      app_identifier: "br.com.xsistemas.DeliveryHair",
+      username: "lazaro.shev@gmail.com"
+    )
+    sync_code_signing(
       type: "development",
       username: "lazaro.shev@gmail.com",
-      keychain_password: "Gftgft1308" 
+      keychain_password: "Gftgft1308"
     )
+    increment_build_number
     build_app(
-      scheme: "DeliveryHair", 
-      workspace: "DeliveryHair.xcworkspace", 
+      scheme: "DeliveryHair",
+      workspace: "DeliveryHair.xcworkspace",
       include_bitcode: true,
       clean: true,
       configuration: "Debug",
@@ -62,7 +72,31 @@ platform :ios do
     )
     hockey(
       api_token: "7bc6849675204404a42df974c0ad8d6b",
-      notes: "this build was uploaded with fatlane!"
+      notes: "this build was uploaded with fastlane!"
+    )
+  end
+
+  lane :prod do
+     sync_code_signing(
+      type: "appstore",
+      username: "lazaro.shev@gmail.com",
+      keychain_password: "Gftgft1308"
+    )
+    # register_devices(
+    #   devices_file: ""
+    # )
+    build_app(
+      scheme: "DeliveryHair",
+      workspace: "DeliveryHair.xcworkspace",
+      include_bitcode: true,
+      clean: true,
+      configuration: "Release",
+      export_method: "appstore"
+    )
+    upload_to_testflight(
+      username: "lazaro.shev@gmail.com",
+      app_identifier: "br.com.xsistemas.DeliveryHair",
+      ipa: "./"
     )
   end
 

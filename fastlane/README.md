@@ -36,6 +36,11 @@ fastlane ios codeSignProd
 fastlane ios dev
 ```
 
+### ios prod
+```
+fastlane ios prod
+```
+
 
 ----
 

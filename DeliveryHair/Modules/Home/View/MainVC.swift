@@ -88,14 +88,14 @@ class MainVC: UIViewController {
         tableView.scrollToRow(at: topIndex, at: .top, animated: true)
     }
     
-    // from delegate
+    // MARK: delegate
     func goToDetail(forProduct product: Product) {
         let vc = UIStoryboard.ViewController.ProductDetailVC
         vc.product = product
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    // actions
+    // MARK: actions
     @IBAction func didPressMenuButton(_ sender: Any) {
         toggleMenuShowHide()
     }
@@ -139,6 +139,7 @@ class MainVC: UIViewController {
     }
 }
 
+// MARK: extensions
 extension MainVC: MenuViewDelegate {
     func didPress(homeLoginButton button: Int) {
         if button == 0 {
@@ -160,7 +161,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
             return CGFloat(cellHeight*(filteredProductArr.count % 2 == 0 ? Double(filteredProductArr.count/2) : Double(filteredProductArr.count)/1.99))
         } else {
             let cellHeight = GenericMethods.sharedInstance.getCellHeight(forDevice: device)
-            return CGFloat(cellHeight*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.99))
+            return CGFloat(cellHeight*(localProductArr.count % 2 == 0 ? Double(localProductArr.count/2) : Double(localProductArr.count)/1.5))
         }
     }
     
@@ -181,7 +182,12 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     override func viewDidLayoutSubviews() {
-        tableViewHeightConstraint.constant = tableView.visibleCells[0].frame.size.height
+        if (localProductArr.count % 2 != 0) || (filteredProductArr.count%2 != 0) {
+            tableViewHeightConstraint.constant = tableView.visibleCells[0].frame.size.height*2
+        } else {
+            tableViewHeightConstraint.constant = tableView.visibleCells[0].frame.size.height
+        }
+        
     }
 }
 

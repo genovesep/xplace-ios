@@ -459,7 +459,6 @@
 				DF99D58721EF92BE00D03913 /* Sources */,
 				DF99D58821EF92BE00D03913 /* Frameworks */,
 				DF99D58921EF92BE00D03913 /* Resources */,
-				DF99D5A321EF930600D03913 /* Build number incrementor */,
 				6829951DEF3C2050E420CD53 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -572,24 +571,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeliveryHair/Pods-DeliveryHair-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		DF99D5A321EF930600D03913 /* Build number incrementor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Build number incrementor";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -786,6 +767,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = N985P6XMY5;
 				INFOPLIST_FILE = DeliveryHair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -797,6 +779,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match Development br.com.xsistemas.DeliveryHair";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -807,6 +790,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = N985P6XMY5;
 				INFOPLIST_FILE = DeliveryHair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -818,6 +802,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.xsistemas.DeliveryHair";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
