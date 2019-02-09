@@ -38,16 +38,7 @@ platform :ios do
     )
   end
 
-  lane :dev do
-    register_devices(
-      devices_file: "./devices.txt",
-      username: "lazaro.shev@gmail.com"
-    )
-    get_provisioning_profile(
-      development: true,
-      app_identifier: "br.com.xsistemas.DeliveryHair",
-      username: "lazaro.shev@gmail.com"
-    )
+  lane :publish_dev do
     sync_code_signing(
       type: "development",
       username: "lazaro.shev@gmail.com"
@@ -63,7 +54,8 @@ platform :ios do
     )
     hockey(
       api_token: "7bc6849675204404a42df974c0ad8d6b",
-      notes: "this build was uploaded with fastlane!"
+      notes: "this build was uploaded with fastlane!",
+      notify: 1
     )
   end
 
