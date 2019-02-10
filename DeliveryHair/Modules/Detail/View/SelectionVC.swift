@@ -82,6 +82,36 @@ extension SelectionVC {
     }
     
     @IBAction func addToCartButtonTapped(_ sender: UIButton) {
+        guard let product = product else { return }
+        let item = CartItem(qtt: 1, product: product)
+        
+        do {
+            guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
+                print("THERE IS NO CART SAVED")
+                let cart = Cart.init(products: [item])
+                try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+                return
+            }
+            
+            var thisCart = cart
+            var prodExists = false
+            
+            for (index, cartItem) in thisCart.products.enumerated() {
+                if product.productId == cartItem.product.productId {
+                    thisCart.products[index].qtt+=1
+                    prodExists = true
+                }
+            }
+            
+            if !prodExists {
+                thisCart.products.append(CartItem(qtt: 1, product: product))
+            }
+            
+            try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
+        } catch let err {
+            print(err.localizedDescription)
+        }
+        
         for controller in (navigationController?.viewControllers)! {
             if controller.isKind(of: MainVC.self) {
                 navigationController?.setNavigationBarHidden(false, animated: true)

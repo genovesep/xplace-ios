@@ -8,9 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		A3273C09F1851F2300006D35 /* Pods_DeliveryHair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6850D08E546DA95BB5268054 /* Pods_DeliveryHair.framework */; };
+		DF0D0C4A220FBC090046E2D5 /* PayloadLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D0C49220FBC090046E2D5 /* PayloadLogin.swift */; };
+		DF0D0C4C220FBD660046E2D5 /* ResponseLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D0C4B220FBD660046E2D5 /* ResponseLogin.swift */; };
 		DF15659221FF5290009CFC19 /* RegisterAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15659121FF5290009CFC19 /* RegisterAddressVC.swift */; };
 		DF15659421FF54C2009CFC19 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15659321FF54C2009CFC19 /* UIImage+Ext.swift */; };
 		DF19301921F5F33B00C1A3EA /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF19301721F5F33B00C1A3EA /* MenuView.xib */; };
+		DF29BC1F220F2C5E00C0A719 /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */; };
+		DF29BC21220F2F7C00C0A719 /* SuccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */; };
+		DF29BC23220F2F8E00C0A719 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC22220F2F8E00C0A719 /* ErrorObject.swift */; };
+		DF29BC25220F351900C0A719 /* RegisterAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC24220F351900C0A719 /* RegisterAddressResponse.swift */; };
+		DF29BC27220F354400C0A719 /* RegisterCepResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC26220F354400C0A719 /* RegisterCepResponse.swift */; };
+		DF29BC29220FB72600C0A719 /* RegisterAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC28220FB72600C0A719 /* RegisterAddress.swift */; };
 		DF2D059C2206195D00F8AD45 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D059B2206195D00F8AD45 /* Colors.swift */; };
 		DF2D059F220689FF00F8AD45 /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D059E220689FF00F8AD45 /* CellIdentifier.swift */; };
 		DF2D05A222068A6D00F8AD45 /* VolumesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D05A122068A6D00F8AD45 /* VolumesCell.swift */; };
@@ -22,6 +30,10 @@
 		DF2D05B42208B99E00F8AD45 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D05B32208B99E00F8AD45 /* Cart.swift */; };
 		DF2D05B72208BC4500F8AD45 /* DefaultsIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D05B62208BC4500F8AD45 /* DefaultsIDs.swift */; };
 		DF2D05B92208C47600F8AD45 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D05B82208C47600F8AD45 /* UserDefaults+Ext.swift */; };
+		DF4C2D47220F066F00AA34D2 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C2D46220F066F00AA34D2 /* PostRequest.swift */; };
+		DF4C2D49220F07C800AA34D2 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C2D48220F07C800AA34D2 /* ErrorMessages.swift */; };
+		DF4C2D4B220F0CA100AA34D2 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C2D4A220F0CA100AA34D2 /* RegisterUser.swift */; };
+		DF4C2D4D220F10B700AA34D2 /* RegisterUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C2D4C220F10B700AA34D2 /* RegisterUserResponse.swift */; };
 		DF60F02721F883E8005306BD /* Numbers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60F02621F883E8005306BD /* Numbers+Ext.swift */; };
 		DF60F02D21F8A22D005306BD /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02921F8A22D005306BD /* Roboto-Italic.ttf */; };
 		DF60F02E21F8A22D005306BD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF60F02A21F8A22D005306BD /* Roboto-Bold.ttf */; };
@@ -67,9 +79,17 @@
 		006C3DFF7FDFB742E81304F4 /* Pods-DeliveryHair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryHair.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryHair/Pods-DeliveryHair.release.xcconfig"; sourceTree = "<group>"; };
 		6850D08E546DA95BB5268054 /* Pods_DeliveryHair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryHair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A0674AB8AD5090F98C9FC72 /* Pods-DeliveryHair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryHair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryHair/Pods-DeliveryHair.debug.xcconfig"; sourceTree = "<group>"; };
+		DF0D0C49220FBC090046E2D5 /* PayloadLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadLogin.swift; sourceTree = "<group>"; };
+		DF0D0C4B220FBD660046E2D5 /* ResponseLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseLogin.swift; sourceTree = "<group>"; };
 		DF15659121FF5290009CFC19 /* RegisterAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressVC.swift; sourceTree = "<group>"; };
 		DF15659321FF54C2009CFC19 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		DF19301721F5F33B00C1A3EA /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
+		DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
+		DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessObject.swift; sourceTree = "<group>"; };
+		DF29BC22220F2F8E00C0A719 /* ErrorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
+		DF29BC24220F351900C0A719 /* RegisterAddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressResponse.swift; sourceTree = "<group>"; };
+		DF29BC26220F354400C0A719 /* RegisterCepResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCepResponse.swift; sourceTree = "<group>"; };
+		DF29BC28220FB72600C0A719 /* RegisterAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddress.swift; sourceTree = "<group>"; };
 		DF2D059B2206195D00F8AD45 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DF2D059E220689FF00F8AD45 /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 		DF2D05A122068A6D00F8AD45 /* VolumesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumesCell.swift; sourceTree = "<group>"; };
@@ -81,6 +101,10 @@
 		DF2D05B32208B99E00F8AD45 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		DF2D05B62208BC4500F8AD45 /* DefaultsIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsIDs.swift; sourceTree = "<group>"; };
 		DF2D05B82208C47600F8AD45 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
+		DF4C2D46220F066F00AA34D2 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
+		DF4C2D48220F07C800AA34D2 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
+		DF4C2D4A220F0CA100AA34D2 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
+		DF4C2D4C220F10B700AA34D2 /* RegisterUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserResponse.swift; sourceTree = "<group>"; };
 		DF60F02621F883E8005306BD /* Numbers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Ext.swift"; sourceTree = "<group>"; };
 		DF60F02921F8A22D005306BD /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		DF60F02A21F8A22D005306BD /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -396,6 +420,16 @@
 				DF2D059E220689FF00F8AD45 /* CellIdentifier.swift */,
 				DF2D05B32208B99E00F8AD45 /* Cart.swift */,
 				DF2D05B62208BC4500F8AD45 /* DefaultsIDs.swift */,
+				DF4C2D48220F07C800AA34D2 /* ErrorMessages.swift */,
+				DF4C2D4A220F0CA100AA34D2 /* RegisterUser.swift */,
+				DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */,
+				DF29BC22220F2F8E00C0A719 /* ErrorObject.swift */,
+				DF4C2D4C220F10B700AA34D2 /* RegisterUserResponse.swift */,
+				DF29BC24220F351900C0A719 /* RegisterAddressResponse.swift */,
+				DF29BC26220F354400C0A719 /* RegisterCepResponse.swift */,
+				DF29BC28220FB72600C0A719 /* RegisterAddress.swift */,
+				DF0D0C49220FBC090046E2D5 /* PayloadLogin.swift */,
+				DF0D0C4B220FBD660046E2D5 /* ResponseLogin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,6 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				DF99D5BD21F008D200D03913 /* ProductServices.swift */,
+				DF4C2D46220F066F00AA34D2 /* PostRequest.swift */,
+				DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -579,20 +615,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF0D0C4A220FBC090046E2D5 /* PayloadLogin.swift in Sources */,
+				DF29BC21220F2F7C00C0A719 /* SuccessObject.swift in Sources */,
 				DF2D059F220689FF00F8AD45 /* CellIdentifier.swift in Sources */,
+				DF4C2D47220F066F00AA34D2 /* PostRequest.swift in Sources */,
+				DF29BC29220FB72600C0A719 /* RegisterAddress.swift in Sources */,
 				DF2D05B22208A6EB00F8AD45 /* CartCell.swift in Sources */,
 				DF6F588B2204D16D00053AE8 /* UIApplication+Ext.swift in Sources */,
 				DF2D059C2206195D00F8AD45 /* Colors.swift in Sources */,
 				DF99D59721EF92BF00D03913 /* DeliveryHair.xcdatamodeld in Sources */,
+				DF29BC1F220F2C5E00C0A719 /* GetRequest.swift in Sources */,
 				DF6F58852204B31B00053AE8 /* ProductDetailVC.swift in Sources */,
 				DF79A79F21FDDB380026B857 /* RoundContainerView.swift in Sources */,
 				DF99D5B821EFEF1F00D03913 /* Color+Ext.swift in Sources */,
 				DF60F02721F883E8005306BD /* Numbers+Ext.swift in Sources */,
+				DF0D0C4C220FBD660046E2D5 /* ResponseLogin.swift in Sources */,
 				DF6F58802204826A00053AE8 /* GenericMethods.swift in Sources */,
+				DF4C2D49220F07C800AA34D2 /* ErrorMessages.swift in Sources */,
 				DF79A79421FDCBD00026B857 /* LoginVC.swift in Sources */,
 				DF6F58892204CD4C00053AE8 /* SelectionVC.swift in Sources */,
 				DF2D05B72208BC4500F8AD45 /* DefaultsIDs.swift in Sources */,
 				DF15659221FF5290009CFC19 /* RegisterAddressVC.swift in Sources */,
+				DF29BC25220F351900C0A719 /* RegisterAddressResponse.swift in Sources */,
 				DF2D05A422068A7C00F8AD45 /* CheckCell.swift in Sources */,
 				DFC58C4321F63D9800E217A2 /* UIView+Ext.swift in Sources */,
 				DF79A7C321FF37C60026B857 /* LoginBaseVC.swift in Sources */,
@@ -602,7 +646,10 @@
 				DF99D59121EF92BE00D03913 /* MainVC.swift in Sources */,
 				DF2D05A62208552700F8AD45 /* CustomSegmentedControl.swift in Sources */,
 				DF99D5A921EFA12A00D03913 /* ItemCell.swift in Sources */,
+				DF4C2D4B220F0CA100AA34D2 /* RegisterUser.swift in Sources */,
 				DF99D5AB21EFA35500D03913 /* ItemMainCell.swift in Sources */,
+				DF29BC27220F354400C0A719 /* RegisterCepResponse.swift in Sources */,
+				DF29BC23220F2F8E00C0A719 /* ErrorObject.swift in Sources */,
 				DF99D58F21EF92BE00D03913 /* AppDelegate.swift in Sources */,
 				DFC58C4121F6327100E217A2 /* Constants.swift in Sources */,
 				DF15659421FF54C2009CFC19 /* UIImage+Ext.swift in Sources */,
@@ -611,6 +658,7 @@
 				DF99D5A721EF990800D03913 /* CarouselCell.swift in Sources */,
 				DF79A79A21FDD8EA0026B857 /* DeliveryHairButton.swift in Sources */,
 				DF2D05AF2208A5BD00F8AD45 /* CartVC.swift in Sources */,
+				DF4C2D4D220F10B700AA34D2 /* RegisterUserResponse.swift in Sources */,
 				DF79A79821FDD69A0026B857 /* DeliveryHairTextField.swift in Sources */,
 				DF79A79C21FDD9BF0026B857 /* CustomButton.swift in Sources */,
 				DF79A7CA21FF46AA0026B857 /* ForgotPasswordVC.swift in Sources */,

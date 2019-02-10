@@ -93,6 +93,9 @@
                             <state key="normal" title="Minhas compras">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="myListButtonTapped:" destination="-1" eventType="touchUpInside" id="Mml-Ro-Cum"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6L5-tu-qeF">
                             <rect key="frame" x="0.0" y="104" width="210" height="33"/>
@@ -100,6 +103,9 @@
                             <state key="normal" title="Carrinho">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="cartButtonTapped:" destination="-1" eventType="touchUpInside" id="TNM-dS-YfW"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
@@ -126,6 +132,9 @@
                             <state key="normal" title="Meu Perfil">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="myProfileButtonTapped:" destination="-1" eventType="touchUpInside" id="X5W-Kz-xWx"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jN-hb-AqU">
                             <rect key="frame" x="0.0" y="104" width="210" height="33"/>
@@ -133,6 +142,9 @@
                             <state key="normal" title="Sair">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="u2X-hk-Xf9"/>
+                            </connections>
                         </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="aMK-15-RQ7"/>

@@ -52,6 +52,23 @@ class MenuView: UIView {
         contentView.frame = bounds
         addSubview(contentView)
         
+        if let isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as? Bool {
+            self.isLoggedIn = isLoggedIn
+            if isLoggedIn {
+                loadForProfile()
+            } else {
+                loadForNoProfile()
+            }
+        } else {
+            loadForNoProfile()
+        }
+    }
+    
+    func loadForProfile() {
+        // TODO...
+    }
+    
+    func loadForNoProfile() {
         loginStack1Buttons.forEach { (button) in
             guard let text = button.titleLabel?.text else { return }
             if text == "Home" {
@@ -68,11 +85,27 @@ class MenuView: UIView {
 
 extension MenuView {
     @IBAction func didPressLoginHomeButton(_ sender: UIButton) {
-        //guard let status = isLoggedIn else { return }
         if isLoggedIn {
-            // TODO - is logged in
+            delegate?.didPress(homeLoginButton: 0)
         } else {
             delegate?.didPress(homeLoginButton: 1)
         }
+    }
+    
+    @IBAction func myListButtonTapped(_ sender: UIButton) {
+        // TODO - go to list viewController
+    }
+    
+    @IBAction func cartButtonTapped(_ sender: UIButton) {
+        // TODO - go to cart viewController
+    }
+    
+    @IBAction func myProfileButtonTapped(_ sender: UIButton) {
+        // TODO - go to myProfile viewController
+    }
+    
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        UserDefaults.standard.set(false, forKey: DefaultsIDs.isLoggedIn)
+        delegate?.didPress(homeLoginButton: 0)
     }
 }

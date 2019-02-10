@@ -31,6 +31,16 @@ class CartVC: UIViewController {
     }
 }
 
+extension CartVC {
+    @IBAction func keepShoppingButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func buyButtonTapped(_ sender: UIButton) {
+        
+    }
+}
+
 extension CartVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

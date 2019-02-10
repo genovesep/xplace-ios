@@ -10,12 +10,22 @@ import UIKit
 
 class LoginVC: LoginBaseVC {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var usernameTextField: DeliveryHairTextField!
-    @IBOutlet weak var passwordTextField: DeliveryHairTextField!
-    @IBOutlet weak var titleLeadConstraint: NSLayoutConstraint!
-    @IBOutlet weak var dhLoginButton: DeliveryHairButton!
+    @IBOutlet weak var titleLabel:              UILabel!
+    @IBOutlet weak var containerView:           UIView!
+    @IBOutlet weak var usernameTextField:       DeliveryHairTextField!
+    @IBOutlet weak var passwordTextField:       DeliveryHairTextField!
+    @IBOutlet weak var titleLeadConstraint:     NSLayoutConstraint!
+    @IBOutlet weak var dhLoginButton:           DeliveryHairButton!
+    
+    var username: String {
+        get { return (usernameTextField?.text)! }
+        set { }
+    }
+    
+    var password: String {
+        get { return (passwordTextField?.text)! }
+        set { }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +35,15 @@ class LoginVC: LoginBaseVC {
     private func setupView() {
         usernameTextField.delegate = self
         
-        let attributedString = NSMutableAttributedString(string: "DeliveryHair")
-        attributedString.addAttributes([NSMutableAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 50.0)!], range: NSRange(location: 0, length: 8))
-        attributedString.addAttributes([NSMutableAttributedString.Key.font : UIFont(name: "GrapeDragon", size: 70.0)!], range: NSRange(location: 8, length: 4))
-        titleLabel.attributedText = attributedString
-        
-        titleLeadConstraint.constant = returnDeviceType() == .iPhone_SE ? 40 : 100
+        let attributedString           = NSMutableAttributedString(string: "DeliveryHair")
+        attributedString.addAttributes([
+            NSMutableAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 50.0)!],
+                                       range: NSRange(location: 0, length: 8))
+        attributedString.addAttributes([
+            NSMutableAttributedString.Key.font : UIFont(name: "GrapeDragon", size: 70.0)!],
+                                       range: NSRange(location: 8, length: 4))
+        titleLabel.attributedText      = attributedString
+        titleLeadConstraint.constant   = returnDeviceType() == .iPhone_SE ? 40 : 100
     }
     
     func returnDeviceType() -> Device? {
@@ -41,16 +54,46 @@ class LoginVC: LoginBaseVC {
 
 extension LoginVC {
     @IBAction func didPressRegisterButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: kSegueToRegisterVC, sender: self)
+        let vc = UIStoryboard.ViewController.registerVC
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didPressForgotPasswordButton(_ sender: UIButton) {
-        self.performSegue(withIdentifier: kSegueToForgetPasswordVC, sender: self)
+        let vc = UIStoryboard.ViewController.forgotPasswordVC
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didPressBackButton(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        LoadingVC.sharedInstance.show()
+        let loginData = PayloadLogin(celNumber: username, password: password, token: "?")
+        PostRequest.sharedInstance.post(url: String.Services.POST.login, payload: loginData.payload(), onSuccess: { (response: SuccessObject<ResponseLogin>) in
+            LoadingVC.sharedInstance.hide()
+            let status = response.object.status
+            if status {
+                let object = response.object
+                // we always should have an object to code and sabe to UserDefaults
+                // that's why I force unwraped it
+                try! UserDefaults.standard.set(object: object, forKey: DefaultsIDs.loginData)
+                UserDefaults.standard.set(true, forKey: DefaultsIDs.isLoggedIn)
+                
+                DispatchQueue.main.async {
+                    self.navigationController?.viewControllers.forEach({ (controller) in
+                        if controller.isKind(of: MainVC.self) {
+                            self.navigationController?.popToViewController(controller, animated: true)
+                        }
+                    })
+                }
+            } else {
+                // TODO - Error
+            }
+        }) { (response) in
+            // TODO - Error
+        }
     }
 }
 

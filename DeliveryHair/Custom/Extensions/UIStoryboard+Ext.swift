@@ -11,6 +11,10 @@ import UIKit
 extension UIStoryboard {
     
     // storyboards
+    private static var MainStb: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: Bundle.main)
+    }
+    
     private static var LoginStb: UIStoryboard {
         return UIStoryboard(name: "Login", bundle: Bundle.main)
     }
@@ -24,9 +28,24 @@ extension UIStoryboard {
     }
     
     enum ViewController {
+        static var mainVC: MainVC {
+            return UIStoryboard.MainStb.instantiateViewController(withIdentifier: "MainVC") as! MainVC
+        }
         
         static var loginVC: LoginVC {
             return UIStoryboard.LoginStb.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        }
+        
+        static var forgotPasswordVC: ForgotPasswordVC {
+            return UIStoryboard.LoginStb.instantiateViewController(withIdentifier: "ForgotPasswordVC") as! ForgotPasswordVC
+        }
+        
+        static var registerVC: RegisterVC {
+            return UIStoryboard.LoginStb.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterVC
+        }
+        
+        static var registerAddressVC: RegisterAddressVC {
+            return UIStoryboard.LoginStb.instantiateViewController(withIdentifier: "RegisterAddressVC") as! RegisterAddressVC
         }
         
         static var ProductDetailVC: ProductDetailVC {

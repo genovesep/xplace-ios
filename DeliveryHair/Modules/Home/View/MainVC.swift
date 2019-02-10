@@ -75,7 +75,7 @@ class MainVC: UIViewController {
                     self.setCarousel()
                 }
             } else {
-                // TODO - treat error
+                // TODO - ERROR
             }
         }
     }
@@ -131,9 +131,11 @@ class MainVC: UIViewController {
     
     // MARK: delegate
     func goToDetail(forProduct product: Product) {
-        let vc = UIStoryboard.ViewController.ProductDetailVC
-        vc.product = product
-        navigationController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.async {
+            let vc = UIStoryboard.ViewController.ProductDetailVC
+            vc.product = product
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     // MARK: actions
@@ -142,8 +144,12 @@ class MainVC: UIViewController {
     }
     
     @IBAction func cartButtonTapped(_ sender: UIButton) {
-        let vc = UIStoryboard.ViewController.cartVC
-        navigationController?.pushViewController(vc, animated: true)
+        DispatchQueue.main.async {
+            let vc = UIStoryboard.ViewController.cartVC
+            self.navigationController?.navigationBar.tintColor = .white
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func customSegmentValueChanged(_ sender: CustomSegmentedControl) {
@@ -184,12 +190,13 @@ class MainVC: UIViewController {
 extension MainVC: MenuViewDelegate {
     func didPress(homeLoginButton button: Int) {
         if button == 0 {
-            // TODO - is logged in
+            self.toggleMenuShowHide()
         } else {
-            let vc = UIStoryboard.ViewController.loginVC
-            toggleMenuShowHide()
-            tableView.setContentOffset(.zero, animated: true)
-            navigationController?.pushViewController(vc, animated: true)
+            self.toggleMenuShowHide()
+            DispatchQueue.main.async {
+                let vc = UIStoryboard.ViewController.loginVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

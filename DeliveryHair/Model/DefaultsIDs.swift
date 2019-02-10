@@ -10,4 +10,6 @@ import Foundation
 
 struct DefaultsIDs {
     static let cartIdentifier       = "UserCardIdentifier"
+    static let loginData            = "LoginData"
+    static let isLoggedIn           = "IsLoggedIn"
 }

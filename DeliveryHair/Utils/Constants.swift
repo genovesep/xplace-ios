@@ -12,11 +12,23 @@ import Foundation
 let kNSNotificationName_productLoad = "didFinishLoadingProducts"
 let kIsLoggedIn = "UserIsLoggedIn"
 
-// SEGUES
-let kSegueToRegisterVC = "toRegisterVC"
-let kSegueToForgetPasswordVC = "toForgetPasswordVC"
-let kSegueToRegisterAddressVC = "toRegisterAddressVC"
-
 // CELL IDENTIFIER
 let kMainCell = "MainCell"
 let kItemMainCell = "ItemMainCell"
+
+// ENUMS
+enum RequestHttpMethod: String {
+    case get = "GET"
+    case put = "PUT"
+    case post = "POST"
+    case delete = "DELETE"
+}
+
+enum CustomError: Error {
+    case couldNotParseUrl
+    case couldNotParseCodable
+    case couldNotSetCodableObjectInUserDefaults
+    case couldNotGetCodableObjectInUserDefaults
+}
+
+

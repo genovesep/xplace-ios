@@ -20,8 +20,31 @@ extension String {
             static var allProducts: String {
                 return host + "/api/products"
             }
+            
+            static var cep: String { // completar com <num cep>/json/
+                return "https://viacep.com.br/ws/"
+            }
+        }
+        
+        enum POST {
+            static var regisiterUser: String {
+                return host + "/api/register"
+            }
+            
+            static var registerAddress: String {
+                return host + "/api/address"
+            }
+            
+            static var login: String {
+                return host + "/api/login"
+            }
         }
     }
+    
+    static var get: String { return "GET" }
+    static var put: String { return "PUT" }
+    static var post: String { return "POST" }
+    static var delete: String { return "DELETE" }
     
     var htmlToAttributedString: NSAttributedString? {
         guard let data = data(using: .utf8) else { return NSAttributedString() }
