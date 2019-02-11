@@ -13,7 +13,7 @@ protocol MenuViewDelegate {
 }
 
 class MenuView: UIView {
-
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet private weak var usernameLabel: UILabel!
@@ -51,7 +51,10 @@ class MenuView: UIView {
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(checkIfIsLoggedIn), name: NSNotification.Name(kIsLoggedIn), object: nil)
+    }
+    
+    @objc func checkIfIsLoggedIn() {
         if let isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as? Bool {
             self.isLoggedIn = isLoggedIn
             if isLoggedIn {
@@ -65,21 +68,57 @@ class MenuView: UIView {
     }
     
     func loadForProfile() {
-        // TODO...
+        do {
+            let data = try UserDefaults.standard.get(objectType: ResponseLogin.self, forKey: DefaultsIDs.loginData)
+            guard let user = data else { return }
+            
+            DispatchQueue.main.async {
+                self.usernameLabel.text = user.username.capitalized
+                self.emailLabel.text = user.email
+                
+                for (index, button) in self.loginStack1Buttons.enumerated() {
+                    switch index {
+                    case 0:
+                        button.setTitle("Home", for: .normal)
+                    case 1:
+                        button.setTitle("Minhas compras", for: .normal)
+                    case 2:
+                        button.setTitle("Carrinho", for: .normal)
+                    default:
+                        break
+                    }
+                }
+                
+                self.middleView.isHidden = false
+                self.loginStack2.isHidden = false
+            }
+        } catch {
+            
+        }
+        
     }
     
     func loadForNoProfile() {
-        loginStack1Buttons.forEach { (button) in
-            guard let text = button.titleLabel?.text else { return }
-            if text == "Home" {
-                button.setTitle("Entrar/Cadastrar", for: .normal)
-            } else {
-                button.setTitle("", for: .normal)
+        DispatchQueue.main.async {
+            self.usernameLabel.text = "Olá, usuário"
+            self.emailLabel.text = "Bem vindo"
+            
+            for (index, button) in self.loginStack1Buttons.enumerated() {
+                switch index {
+                case 0:
+                    button.setTitle("Entrar/Cadastrar", for: .normal)
+                case 1:
+                    button.setTitle("", for: .normal)
+                case 2:
+                    button.setTitle("", for: .normal)
+                default:
+                    break
+                }
             }
+            
+            self.middleView.isHidden = true
+            self.loginStack2.isHidden = true
         }
-        
-        middleView.isHidden = true
-        loginStack2.isHidden = true
     }
 }
 
@@ -97,7 +136,7 @@ extension MenuView {
     }
     
     @IBAction func cartButtonTapped(_ sender: UIButton) {
-        // TODO - go to cart viewController
+        delegate?.didPress(homeLoginButton: 2)
     }
     
     @IBAction func myProfileButtonTapped(_ sender: UIButton) {
@@ -106,6 +145,7 @@ extension MenuView {
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         UserDefaults.standard.set(false, forKey: DefaultsIDs.isLoggedIn)
+        NotificationCenter.default.post(name: NSNotification.Name(kIsLoggedIn), object: nil)
         delegate?.didPress(homeLoginButton: 0)
     }
 }

@@ -9,19 +9,19 @@
 import Foundation
 
 // NOTIFICATION NAMES
-let kNSNotificationName_productLoad = "didFinishLoadingProducts"
-let kIsLoggedIn = "UserIsLoggedIn"
+let kNSNotificationName_productLoad     = "didFinishLoadingProducts"
+let kIsLoggedIn                         = "UserIsLoggedIn"
 
 // CELL IDENTIFIER
-let kMainCell = "MainCell"
-let kItemMainCell = "ItemMainCell"
+let kMainCell       = "MainCell"
+let kItemMainCell   = "ItemMainCell"
 
 // ENUMS
 enum RequestHttpMethod: String {
-    case get = "GET"
-    case put = "PUT"
-    case post = "POST"
-    case delete = "DELETE"
+    case get        = "GET"
+    case put        = "PUT"
+    case post       = "POST"
+    case delete     = "DELETE"
 }
 
 enum CustomError: Error {

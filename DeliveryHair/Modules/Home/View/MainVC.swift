@@ -122,6 +122,8 @@ class MainVC: UIViewController {
         
         isShowingMenu ? view.removeBlurView() : view.addBlurView()
         isShowingMenu = !isShowingMenu
+        
+        menuContainerView.checkIfIsLoggedIn()
     }
     
     func reloadData() {
@@ -189,14 +191,25 @@ class MainVC: UIViewController {
 // MARK: extensions
 extension MainVC: MenuViewDelegate {
     func didPress(homeLoginButton button: Int) {
-        if button == 0 {
+        switch button {
+        case 0:
             self.toggleMenuShowHide()
-        } else {
+        case 1:
             self.toggleMenuShowHide()
             DispatchQueue.main.async {
                 let vc = UIStoryboard.ViewController.loginVC
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+        case 2:
+            self.toggleMenuShowHide()
+            DispatchQueue.main.async {
+                let vc = UIStoryboard.ViewController.cartVC
+                self.navigationController?.navigationBar.tintColor = .white
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        default:
+            break
         }
     }
 }

@@ -33,10 +33,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKP-4Q-esW">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="721.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="705.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-rR-RCh" customClass="RoundContainerView" customModule="DeliveryHair" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="261.66666666666669" width="335" height="360.00000000000006"/>
+                                                <rect key="frame" x="20" y="245.66666666666669" width="335" height="360.00000000000006"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número de celular" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVN-tg-Gw3" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="20" width="295" height="60"/>
@@ -56,6 +56,9 @@
                                                         <state key="normal" title="ENTRAR">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="loginButtonTapped:" destination="Ud4-RQ-RhS" eventType="touchUpInside" id="Jno-IJ-x1w"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWH-DS-Xd8" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="100" width="295" height="60"/>
@@ -128,7 +131,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pS-zZ-4Wx">
-                                                <rect key="frame" x="124" y="100" width="127" height="81.666666666666686"/>
+                                                <rect key="frame" x="151.33333333333334" y="100" width="72.333333333333343" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="GrapeDragon" family="GrapeDragon" pointSize="70"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -397,10 +400,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWn-qn-OdN">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="506.66666666666669"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyN-0o-RXs" customClass="RoundContainerView" customModule="DeliveryHair" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="242.66666666666669" width="335" height="180"/>
+                                                <rect key="frame" x="20" y="226.66666666666669" width="335" height="180"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HN-8l-lvx" customClass="DeliveryHairButton" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="110" width="235" height="50"/>
@@ -448,13 +451,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbl-jO-CPb">
-                                                <rect key="frame" x="124" y="100" width="127" height="81.666666666666686"/>
+                                                <rect key="frame" x="151.33333333333334" y="100" width="72.333333333333343" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="GrapeDragon" family="GrapeDragon" pointSize="70"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resetar senha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-TW-gSf">
-                                                <rect key="frame" x="129.66666666666666" y="191.66666666666666" width="115.66666666666666" height="21"/>
+                                                <rect key="frame" x="129.66666666666666" y="175.66666666666666" width="115.66666666666666" height="21"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -527,10 +530,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="956"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIj-Ry-9fA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="949.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="934"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmE-8C-LAH" customClass="RoundContainerView" customModule="DeliveryHair" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="242.66666666666674" width="335" height="650"/>
+                                                <rect key="frame" x="20" y="227" width="335" height="650"/>
                                                 <subviews>
                                                     <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cep" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5P-sU-Z15" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="20" width="295" height="60"/>
@@ -573,7 +576,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bairro" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWv-zj-MHX" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="259.99999999999994" width="295" height="60"/>
+                                                        <rect key="frame" x="20" y="260" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="UKS-p5-2NU"/>
                                                         </constraints>
@@ -582,7 +585,7 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <textField opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Logradouro" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfK-ud-8wV" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="339.99999999999994" width="295" height="60"/>
+                                                        <rect key="frame" x="20" y="340" width="295" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="cyr-3I-eQY"/>
                                                         </constraints>
@@ -591,10 +594,10 @@
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gTL-RK-gFL">
-                                                        <rect key="frame" x="20" y="419.99999999999994" width="295" height="60"/>
+                                                        <rect key="frame" x="20" y="420" width="295" height="60"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="-1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Complemento" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-lj-MtE" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="131" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="6ZE-21-8nf"/>
                                                                 </constraints>
@@ -603,7 +606,7 @@
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             </textField>
                                                             <textField opaque="NO" tag="-1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xln-fr-P3I" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
-                                                                <rect key="frame" x="136" y="0.0" width="159" height="60"/>
+                                                                <rect key="frame" x="135" y="0.0" width="160" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="VIl-Su-6Rc"/>
                                                                 </constraints>
@@ -667,13 +670,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zS-ZG-Dmn">
-                                                <rect key="frame" x="124" y="100" width="127" height="81.666666666666686"/>
+                                                <rect key="frame" x="151.33333333333334" y="100" width="72.333333333333343" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="GrapeDragon" family="GrapeDragon" pointSize="70"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadastro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTD-Vu-wxC">
-                                                <rect key="frame" x="150.66666666666666" y="191.66666666666666" width="74" height="21"/>
+                                                <rect key="frame" x="151" y="175.66666666666666" width="73.333333333333314" height="21.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>

@@ -76,15 +76,15 @@ extension LoginVC {
             let status = response.object.status
             if status {
                 let object = response.object
-                // we always should have an object to code and sabe to UserDefaults
-                // that's why I force unwraped it
                 try! UserDefaults.standard.set(object: object, forKey: DefaultsIDs.loginData)
                 UserDefaults.standard.set(true, forKey: DefaultsIDs.isLoggedIn)
+                NotificationCenter.default.post(name: NSNotification.Name(kIsLoggedIn), object: nil)
                 
                 DispatchQueue.main.async {
                     self.navigationController?.viewControllers.forEach({ (controller) in
                         if controller.isKind(of: MainVC.self) {
                             self.navigationController?.popToViewController(controller, animated: true)
+                            self.navigationController?.setNavigationBarHidden(false, animated: true)
                         }
                     })
                 }
