@@ -12,8 +12,20 @@ class CheckCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    weak var delegate: SelectionVC?
+    var productColor: ProductColors!
+    var myIndexPath: IndexPath!
+    
     func customInit(withColor color: ProductColors) {
         titleLabel.text = color.name
+        productColor = color
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        productColor.selected = selected
+        if selected {
+            delegate?.updateProductColors(withProductColor: productColor, andIndexPath: myIndexPath)
+        }
     }
 
 }

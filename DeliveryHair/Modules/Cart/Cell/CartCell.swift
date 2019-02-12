@@ -17,7 +17,7 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var productItemListLabel: UILabel!
     @IBOutlet weak var addSubContainerView: UIView!
     
     weak var delegate: CartVC?
@@ -38,7 +38,33 @@ class CartCell: UITableViewCell {
         
         if let prodImg = product.productImages {
             productImageView.downloadImage(fromStringUrl: prodImg.productImage)
+            productImageView.roundCorners(corners: [.topLeft, .topRight, .bottomRight, .bottomLeft], radius: 8)
         }
+        
+        var descriptionString = ""
+        if item.product.productSizes.count > 0 {
+            let products = item.product.productSizes
+            for (index, product) in products.enumerated() {
+                guard let qtt = product.quantity else { return }
+                if qtt > 0 {
+                    let str = index == 0 ? "\(qtt)x \(product.name)" : "\n\(qtt)x \(product.name)"
+                    descriptionString.append(str)
+                }
+            }
+        } else if item.product.productColors.count > 0 {
+            let products = item.product.productColors
+            products.forEach { (product) in
+                guard let isSelected = product.selected else { return }
+                if isSelected {
+                    let str = "\(product.name)"
+                    descriptionString.append(str)
+                }
+            }
+        } else {
+            descriptionString.append("---")
+        }
+        
+        productItemListLabel.text = descriptionString
     }
     
     func updateCount() {
@@ -73,9 +99,5 @@ extension CartCell {
     @IBAction func subButtonTapped(_ sender: UIButton) {
         item.qtt -= 1
         updateCount()
-    }
-    
-    @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        delegate?.remove(cell: myIndexPath)
     }
 }

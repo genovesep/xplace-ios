@@ -31,4 +31,4 @@ enum CustomError: Error {
     case couldNotGetCodableObjectInUserDefaults
 }
 
-
+// TWO-CASED ENUMS

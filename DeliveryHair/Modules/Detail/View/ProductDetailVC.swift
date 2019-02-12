@@ -29,7 +29,9 @@ class ProductDetailVC: UIViewController {
         UIApplication.shared.statusBarView?.backgroundColor = Colors.darkPink
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as! Bool
+        if let loggedStatus = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as? Bool {
+            self.isLoggedIn = loggedStatus
+        }
         
         guard let product = product else { return }
         productNameLabel.text = product.productName
@@ -80,18 +82,7 @@ extension ProductDetailVC {
                         }
                         
                         var thisCart = cart
-                        var prodExists = false
-                        
-                        for (index, cartItem) in thisCart.products.enumerated() {
-                            if product.productId == cartItem.product.productId {
-                                thisCart.products[index].qtt+=1
-                                prodExists = true
-                            }
-                        }
-                        
-                        if !prodExists {
-                            thisCart.products.append(CartItem(qtt: 1, product: product))
-                        }
+                        thisCart.products.append(CartItem(qtt: 1, product: product))
                         
                         try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
                     } catch let err {

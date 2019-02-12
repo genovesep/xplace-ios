@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product: Codable {
+struct Product: Codable {
     public private(set) var productId: Int
     public private(set) var productName, productDescription: String
     public private(set) var productVendorId: Int
@@ -34,7 +34,15 @@ class Product: Codable {
         productQtt = 0
     }
     
-    func addToQtt(add count: Int) {
+    mutating func setProduct<T>(productIndex index: Int, newProduct: T) {
+        if T.self == ProductSize.self {
+            productSizes[index] = newProduct as! ProductSize
+        } else {
+            productColors[index] = newProduct as! ProductColors
+        }
+    }
+    
+    mutating func addToQtt(add count: Int) {
         if let _ = productQtt {
             productQtt!+=count
         } else {
@@ -42,7 +50,7 @@ class Product: Codable {
         }
     }
     
-    func subToQtt(sub count: Int) {
+    mutating func subToQtt(sub count: Int) {
         if let _ = productQtt {
             productQtt!-=count
         } else {
@@ -63,9 +71,11 @@ struct ProductCategorys: Codable {
 struct ProductSize: Codable {
     let termId: Int
     let name: String
+    var quantity: Int? = 0
 }
 
 struct ProductColors: Codable {
     let termId: Int
     let name: String
+    var selected: Bool? = false
 }

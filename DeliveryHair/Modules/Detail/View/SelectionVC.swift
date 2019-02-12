@@ -16,6 +16,7 @@ class SelectionVC: UIViewController {
     var product: Product?
     var hasSizes = false
     var hasColors = false
+    var selectedColor = false
     var isLoggedIn = false
     
     override func viewDidLoad() {
@@ -30,13 +31,29 @@ class SelectionVC: UIViewController {
         tableView.reloadData()
         dhAddToCartButton.disableButton()
         
-        isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as! Bool
+        if let loggedStatus = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as? Bool {
+            self.isLoggedIn = loggedStatus
+        }
+    }
+    
+    func validateButton() {
+        if selectedColor {
+            dhAddToCartButton.setupView()
+        }
+    }
+    
+    // MARK: Delegates
+    func updateProductSize(withProductSize productSize: ProductSize, andIndexPath indexPath: IndexPath) {
+        self.product?.setProduct(productIndex: indexPath.row, newProduct: productSize)
+    }
+    
+    func updateProductColors(withProductColor productColor: ProductColors, andIndexPath indexPath: IndexPath) {
+        self.product?.setProduct(productIndex: indexPath.row, newProduct: productColor)
     }
     
     func checkProductQuantity(forCounter counter: Int) {
-        guard let product = product else { return }
-        product.addToQtt(add: counter)
-        if (hasSizes || hasColors) && product.productQtt == 0 {
+        product!.addToQtt(add: counter)
+        if (hasSizes || hasColors) && product!.productQtt == 0 {
             dhAddToCartButton.disableButton()
         } else {
             dhAddToCartButton.setupView()
@@ -74,17 +91,41 @@ extension SelectionVC: UITableViewDelegate, UITableViewDataSource {
         if let product = product {
             if hasSizes {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.volumesCell) as? VolumesCell else { return UITableViewCell() }
+                cell.myIndexPath = indexPath
                 cell.customInit(withVolume: product.productSizes[indexPath.row], andProductQtt: product.productManageStockQty)
                 cell.delegate = self
                 return cell
             } else if hasColors {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.checkCell) as? CheckCell else { return UITableViewCell() }
+                cell.myIndexPath = indexPath
+                cell.delegate = self
                 cell.customInit(withColor: product.productColors[indexPath.row])
                 return cell
             }
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if hasColors {
+            selectedColor = true
+            
+            for cell in tableView.visibleCells {
+                cell.accessoryType = .none
+            }
+            
+            let selected = tableView.cellForRow(at: indexPath)
+            selected?.accessoryType = .checkmark
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            validateButton()
+        }
     }
 }
 
@@ -107,18 +148,7 @@ extension SelectionVC {
                 }
                 
                 var thisCart = cart
-                var prodExists = false
-                
-                for (index, cartItem) in thisCart.products.enumerated() {
-                    if product.productId == cartItem.product.productId {
-                        thisCart.products[index].qtt+=1
-                        prodExists = true
-                    }
-                }
-                
-                if !prodExists {
-                    thisCart.products.append(CartItem(qtt: 1, product: product))
-                }
+                thisCart.products.append(CartItem(qtt: 1, product: product))
                 
                 try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
             } catch let err {

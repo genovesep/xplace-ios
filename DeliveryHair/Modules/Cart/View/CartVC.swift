@@ -23,7 +23,6 @@ class CartVC: UIViewController {
     func setupView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         loadCart()
     }
@@ -38,14 +37,7 @@ class CartVC: UIViewController {
     // MAKR: Delegates
     func updateCartItemQtt(withNewQtt qtt: Int, andProdIndexPath indexPath: IndexPath) {
         self.cart?.products[indexPath.row].qtt = qtt
-    }
-    
-    func remove(cell indexPath: IndexPath) {
-        self.cart?.products.remove(at: indexPath.row)
-        guard let cart = self.cart else { return }
-        try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
-        tableView.deleteRows(at: [indexPath], with: .left)
-        perform(#selector(loadCart), with: nil, afterDelay: 0.5)
+        try! UserDefaults.standard.set(object: self.cart, forKey: DefaultsIDs.cartIdentifier)
     }
 }
 
@@ -79,5 +71,14 @@ extension CartVC: UITableViewDelegate, UITableViewDataSource {
         cell.customInit(forItem: cart.products[indexPath.row])
         cell.delegate = self
         return cell        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.cart?.products.remove(at: indexPath.row)
+            guard let cart = self.cart else { return }
+            try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+            tableView.deleteRows(at: [indexPath], with: .left)
+        }
     }
 }

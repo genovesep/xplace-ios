@@ -44,11 +44,20 @@ class LoginVC: LoginBaseVC {
                                        range: NSRange(location: 8, length: 4))
         titleLabel.attributedText      = attributedString
         titleLeadConstraint.constant   = returnDeviceType() == .iPhone_SE ? 40 : 50
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(togglePasswordView(_:)))
+        tap.numberOfTapsRequired = 1
+        passwordTextField.rightView?.addGestureRecognizer(tap)
+        passwordTextField.rightView?.isUserInteractionEnabled = true
     }
     
     func returnDeviceType() -> Device? {
         let screen = UIScreen.main.bounds
         return Device(rawValue: screen.size.height)
+    }
+    
+    @objc func togglePasswordView(_ sender: UITapGestureRecognizer) {
+        passwordTextField.toggleSecureTextEntry()
     }
 }
 

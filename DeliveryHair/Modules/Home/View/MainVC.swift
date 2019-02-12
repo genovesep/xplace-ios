@@ -49,11 +49,12 @@ class MainVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        tableView.isScrollEnabled = false
         menuContainerView.delegate = self
         
         // REMOVER 
-        let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier)
-        print("CART ITEMS: ", cart ?? 0)
+//         let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier)
+//         print("CART ITEMS: ", cart ?? 0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,7 +67,6 @@ class MainVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        tableView.isScrollEnabled = false
         pageControl.isUserInteractionEnabled = false
         scrollView.isUserInteractionEnabled = false
         
