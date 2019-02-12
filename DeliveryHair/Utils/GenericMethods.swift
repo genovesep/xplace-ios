@@ -49,4 +49,20 @@ class GenericMethods {
             print("FAILED TO ENCODE: ", err.localizedDescription)
         }
     }
+    
+    func flatFormat(phoneNumber number: String) -> String {
+        return number.replacingOccurrences(of: "(", with: "")
+                     .replacingOccurrences(of: ")", with: "")
+                     .replacingOccurrences(of: "-", with: "")
+    }
+    
+    func checkIf(cartHasDummyProduct cart: Cart) -> Bool {
+        if cart.products.count == 1 {
+            let product = cart.products[0]
+            if product.qtt == 0 {
+                return true
+            }
+        }
+        return false
+    }
 }

@@ -21,12 +21,16 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var addSubContainerView: UIView!
     
     weak var delegate: CartVC?
+    var item: CartItem!
+    var myIndexPath: IndexPath!
     
     func customInit(forItem item: CartItem) {
-        let product = item.product
+        self.item = item
+        let product = self.item.product
+        productNameLabel.text = product.productName
         priceLabel.text = Double(product.productPrice)?.toLocalCurrency()
         
-        let qtt = item.qtt
+        let qtt = self.item.qtt
         countLabel.text = "\(qtt)"
         
         let total = Double(qtt) * Double(product.productPrice)!
@@ -36,8 +40,42 @@ class CartCell: UITableViewCell {
             productImageView.downloadImage(fromStringUrl: prodImg.productImage)
         }
     }
+    
+    func updateCount() {
+        if self.item.qtt <= 0 {
+            self.item.qtt = 1
+            countLabel.text = "1"
+        } else {
+            countLabel.text = "\(self.item.qtt)"
+        }
+        updateTotal()
+        delegate?.updateCartItemQtt(withNewQtt: self.item.qtt, andProdIndexPath: myIndexPath)
+    }
+    
+    func updateTotal() {
+        let qtt = self.item.qtt
+        let product = self.item.product
+        let total = Double(qtt) * Double(product.productPrice)!
+        totalLabel.text = total.toLocalCurrency()
+    }
 
     override func layoutSubviews() {
         addSubContainerView.layer.cornerRadius = addSubContainerView.frame.height/2
+    }
+}
+
+extension CartCell {
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        item.qtt += 1
+        updateCount()
+    }
+    
+    @IBAction func subButtonTapped(_ sender: UIButton) {
+        item.qtt -= 1
+        updateCount()
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        delegate?.remove(cell: myIndexPath)
     }
 }

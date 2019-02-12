@@ -16,6 +16,7 @@ class SelectionVC: UIViewController {
     var product: Product?
     var hasSizes = false
     var hasColors = false
+    var isLoggedIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +29,26 @@ class SelectionVC: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.reloadData()
         dhAddToCartButton.disableButton()
+        
+        isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as! Bool
     }
     
     func checkProductQuantity(forCounter counter: Int) {
         guard let product = product else { return }
-        product.setProdQtt(withCount: counter)
+        product.addToQtt(add: counter)
         if (hasSizes || hasColors) && product.productQtt == 0 {
             dhAddToCartButton.disableButton()
         } else {
             dhAddToCartButton.setupView()
+        }
+    }
+    
+    func backToMainVC() {
+        for controller in (navigationController?.viewControllers)! {
+            if controller.isKind(of: MainVC.self) {
+                navigationController?.setNavigationBarHidden(false, animated: true)
+                navigationController?.popToViewController(controller, animated: true)
+            }
         }
     }
 }
@@ -85,38 +97,38 @@ extension SelectionVC {
         guard let product = product else { return }
         let item = CartItem(qtt: 1, product: product)
         
-        do {
-            guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
-                print("THERE IS NO CART SAVED")
-                let cart = Cart.init(products: [item])
-                try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
-                return
-            }
-            
-            var thisCart = cart
-            var prodExists = false
-            
-            for (index, cartItem) in thisCart.products.enumerated() {
-                if product.productId == cartItem.product.productId {
-                    thisCart.products[index].qtt+=1
-                    prodExists = true
+        if isLoggedIn {
+            do {
+                guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
+                    print("THERE IS NO CART SAVED")
+                    let cart = Cart.init(products: [item])
+                    try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+                    return
                 }
+                
+                var thisCart = cart
+                var prodExists = false
+                
+                for (index, cartItem) in thisCart.products.enumerated() {
+                    if product.productId == cartItem.product.productId {
+                        thisCart.products[index].qtt+=1
+                        prodExists = true
+                    }
+                }
+                
+                if !prodExists {
+                    thisCart.products.append(CartItem(qtt: 1, product: product))
+                }
+                
+                try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
+            } catch let err {
+                print(err.localizedDescription)
             }
             
-            if !prodExists {
-                thisCart.products.append(CartItem(qtt: 1, product: product))
-            }
-            
-            try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
-        } catch let err {
-            print(err.localizedDescription)
-        }
-        
-        for controller in (navigationController?.viewControllers)! {
-            if controller.isKind(of: MainVC.self) {
-                navigationController?.setNavigationBarHidden(false, animated: true)
-                navigationController?.popToViewController(controller, animated: true)
-            }
+            backToMainVC()
+        } else {
+            // TODO - isn't logged in
+            backToMainVC()
         }
     }
 }

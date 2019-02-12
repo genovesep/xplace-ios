@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RegisterAddressResponse: Codable {
+struct GenericMessageResponse: Codable {
     let status: Bool
     let msg: String
 }

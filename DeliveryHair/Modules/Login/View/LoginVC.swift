@@ -43,7 +43,7 @@ class LoginVC: LoginBaseVC {
             NSMutableAttributedString.Key.font : UIFont(name: "GrapeDragon", size: 70.0)!],
                                        range: NSRange(location: 8, length: 4))
         titleLabel.attributedText      = attributedString
-        titleLeadConstraint.constant   = returnDeviceType() == .iPhone_SE ? 40 : 100
+        titleLeadConstraint.constant   = returnDeviceType() == .iPhone_SE ? 40 : 50
     }
     
     func returnDeviceType() -> Device? {
@@ -61,11 +61,6 @@ extension LoginVC {
     @IBAction func didPressForgotPasswordButton(_ sender: UIButton) {
         let vc = UIStoryboard.ViewController.forgotPasswordVC
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func didPressBackButton(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -89,9 +84,11 @@ extension LoginVC {
                     })
                 }
             } else {
+                LoadingVC.sharedInstance.hide()
                 // TODO - Error
             }
         }) { (response) in
+            LoadingVC.sharedInstance.hide()
             // TODO - Error
         }
     }

@@ -34,11 +34,19 @@ class Product: Codable {
         productQtt = 0
     }
     
-    func setProdQtt(withCount count: Int) {
+    func addToQtt(add count: Int) {
         if let _ = productQtt {
             productQtt!+=count
         } else {
             productQtt = count
+        }
+    }
+    
+    func subToQtt(sub count: Int) {
+        if let _ = productQtt {
+            productQtt!-=count
+        } else {
+            productQtt = 0
         }
     }
 }

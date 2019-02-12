@@ -45,6 +45,22 @@ extension UIView {
     }
 }
 
+extension UINavigationBar {
+    func setTransparent() {
+        self.setBackgroundImage(UIImage(), for: .default)
+        self.shadowImage        = UIImage()
+        self.backgroundColor    = .clear
+        self.isTranslucent      = true
+        self.tintColor          = .white
+    }
+    
+    func setDefault() {
+        self.backgroundColor    = Colors.darkPink
+        self.isTranslucent      = false
+        self.tintColor          = .white
+    }
+}
+
 // for custom image caching
 class CustomImageView: UIImageView {
     

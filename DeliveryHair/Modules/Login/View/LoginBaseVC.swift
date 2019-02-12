@@ -14,8 +14,13 @@ class LoginBaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground()
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        setBackground()        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.setTransparent()
     }
 
     func setBackground() {

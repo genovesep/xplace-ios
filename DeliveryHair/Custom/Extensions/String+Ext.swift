@@ -38,6 +38,10 @@ extension String {
             static var login: String {
                 return host + "/api/login"
             }
+            
+            static var resetPassword: String {
+                return host + "/api/password"
+            }
         }
     }
     

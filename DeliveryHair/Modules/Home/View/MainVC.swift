@@ -41,6 +41,12 @@ class MainVC: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarView?.backgroundColor = Colors.darkPink
+        navigationController?.navigationBar.setDefault()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         menuContainerView.delegate = self
@@ -50,11 +56,17 @@ class MainVC: UIViewController {
         print("CART ITEMS: ", cart ?? 0)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
     func setupView() {
         navigationController?.navigationBar.backgroundColor = Colors.darkPink
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.isScrollEnabled = false
         pageControl.isUserInteractionEnabled = false
         scrollView.isUserInteractionEnabled = false
         
@@ -146,10 +158,12 @@ class MainVC: UIViewController {
     }
     
     @IBAction func cartButtonTapped(_ sender: UIButton) {
+        if isShowingMenu {
+            toggleMenuShowHide()
+        }
+        
         DispatchQueue.main.async {
             let vc = UIStoryboard.ViewController.cartVC
-            self.navigationController?.navigationBar.tintColor = .white
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -18,6 +18,7 @@ class ProductDetailVC: UIViewController {
     @IBOutlet weak var dhAddToCartButton: DeliveryHairButton!
     
     var product: Product?
+    var isLoggedIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class ProductDetailVC: UIViewController {
     func setupView() {        
         UIApplication.shared.statusBarView?.backgroundColor = Colors.darkPink
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as! Bool
         
         guard let product = product else { return }
         productNameLabel.text = product.productName
@@ -67,34 +70,39 @@ extension ProductDetailVC {
             } else {
                 let item = CartItem(qtt: 1, product: product)
                 
-                do {
-                    guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
-                        print("THERE IS NO CART SAVED")
-                        let cart = Cart.init(products: [item])
-                        try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
-                        return
-                    }
-                    
-                    var thisCart = cart
-                    var prodExists = false
-                    
-                    for (index, cartItem) in thisCart.products.enumerated() {
-                        if product.productId == cartItem.product.productId {
-                            thisCart.products[index].qtt+=1
-                            prodExists = true
+                if isLoggedIn {
+                    do {
+                        guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
+                            print("THERE IS NO CART SAVED")
+                            let cart = Cart.init(products: [item])
+                            try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+                            return
                         }
+                        
+                        var thisCart = cart
+                        var prodExists = false
+                        
+                        for (index, cartItem) in thisCart.products.enumerated() {
+                            if product.productId == cartItem.product.productId {
+                                thisCart.products[index].qtt+=1
+                                prodExists = true
+                            }
+                        }
+                        
+                        if !prodExists {
+                            thisCart.products.append(CartItem(qtt: 1, product: product))
+                        }
+                        
+                        try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
+                    } catch let err {
+                        print(err.localizedDescription)
                     }
                     
-                    if !prodExists {
-                        thisCart.products.append(CartItem(qtt: 1, product: product))
-                    }
-                    
-                    try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
-                } catch let err {
-                    print(err.localizedDescription)
+                    backVC()
+                } else {
+                    // TODO - isn't logged in                    
+                    backVC()
                 }
-                
-                backVC()
             }
         }
     }

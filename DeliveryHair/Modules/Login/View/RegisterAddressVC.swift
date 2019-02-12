@@ -71,6 +71,7 @@ class RegisterAddressVC: LoginBaseVC {
     func setupView() {
         titleLabel.attributedText   = NSAttributedString.loginTitle
         cepTextField.delegate       = self
+        ufTextField.delegate        = self
     }
     
     func checkRequiredData() -> Bool {
@@ -99,15 +100,11 @@ class RegisterAddressVC: LoginBaseVC {
 }
 
 extension RegisterAddressVC {
-    @IBAction func didPressBackButton(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
-    }
-    
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         if checkRequiredData() {
             LoadingVC.sharedInstance.show()
             let address = RegisterAddress(userId: registerdUserId, cep: cep, logradouro: street, numero: number, complemento: complement, referencia: reference, bairro: neigh, cidade: city, uf: uf)
-            PostRequest.sharedInstance.post(url: String.Services.POST.registerAddress, payload: address.payload(), onSuccess: { (response: SuccessObject<RegisterAddressResponse>) in
+            PostRequest.sharedInstance.post(url: String.Services.POST.registerAddress, payload: address.payload(), onSuccess: { (response: SuccessObject<GenericMessageResponse>) in
                 LoadingVC.sharedInstance.hide()
                 print(response.object)
                 DispatchQueue.main.async {
@@ -118,9 +115,11 @@ extension RegisterAddressVC {
                     })
                 }
             }) { (response) in
+                LoadingVC.sharedInstance.hide()
                 // TODO - Error
             }
         } else {
+            LoadingVC.sharedInstance.hide()
             // TODO = Error
         }
     }
@@ -135,8 +134,53 @@ extension RegisterAddressVC: UITextFieldDelegate {
                 LoadingVC.sharedInstance.hide()
                 self.populateTextFields(withAddressInfo: response.object)
             }) { (response) in
+                LoadingVC.sharedInstance.hide()
                 // TODO - error
             }
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let char = string.cString(using: String.Encoding.utf8)!
+        let isBackSpace = strcmp(char, "\\b")
+        if (isBackSpace == -92) {
+            return true
+        } else {
+            let currentCharacterCount = ((textField.text?.count)! + string.count) - 1
+            
+            switch (textField, currentCharacterCount) {
+            case (self.cepTextField, 8):
+                self.cepTextField.text?.append(string)
+            case (self.ufTextField, 1):
+                self.ufTextField.text?.append(string)
+            default:
+                break
+            }
+        }
+        
+        if textField == cepTextField {
+            let noDigits = CharacterSet.decimalDigits.inverted
+            if (string.rangeOfCharacter(from: noDigits) != nil) {
+                return false
+            }
+            
+            guard let cep = cepTextField.text else { return true }
+            let txtLength = cep.count + string.count - range.length
+            
+            if txtLength == 6 {
+                textField.text?.append("-")
+            }
+            
+            return txtLength <= 9
+        }
+        
+        if textField == ufTextField {
+            guard let uf = ufTextField.text else { return true }
+            let txtLength = uf.count + string.count - range.length
+            return txtLength <= 2
+        }
+        
+        return true
     }
 }

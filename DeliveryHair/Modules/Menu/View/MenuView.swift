@@ -73,7 +73,7 @@ class MenuView: UIView {
             guard let user = data else { return }
             
             DispatchQueue.main.async {
-                self.usernameLabel.text = user.username.capitalized
+                self.usernameLabel.text = user.getFirstName().capitalized
                 self.emailLabel.text = user.email
                 
                 for (index, button) in self.loginStack1Buttons.enumerated() {
@@ -145,6 +145,7 @@ extension MenuView {
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         UserDefaults.standard.set(false, forKey: DefaultsIDs.isLoggedIn)
+        UserDefaults.standard.set(nil, forKey: DefaultsIDs.cartIdentifier)
         NotificationCenter.default.post(name: NSNotification.Name(kIsLoggedIn), object: nil)
         delegate?.didPress(homeLoginButton: 0)
     }

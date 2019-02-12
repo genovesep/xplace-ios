@@ -25,6 +25,12 @@ struct ResponseLogin: Codable {
         case userRole       = "user_role"
         case userCards      = "user_cards"
     }
+    
+    func getFirstName() -> String {
+        let s = username.split(separator: " ")
+        let firstName = String(describing: s[0])
+        return firstName
+    }
 }
 
 struct Address: Codable {

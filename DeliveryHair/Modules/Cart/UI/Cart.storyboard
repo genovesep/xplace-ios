@@ -101,6 +101,9 @@
                                                                                 <constraint firstAttribute="height" constant="30" id="l3m-ef-lMd"/>
                                                                             </constraints>
                                                                             <state key="normal" image="icon-sub"/>
+                                                                            <connections>
+                                                                                <action selector="subButtonTapped:" destination="4dZ-ks-pTa" eventType="touchUpInside" id="47J-mI-dsR"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4d-NY-dFo">
                                                                             <rect key="frame" x="44.999999999999972" y="0.0" width="11.666666666666664" height="30"/>
@@ -115,6 +118,9 @@
                                                                                 <constraint firstAttribute="height" constant="30" id="TSZ-PL-svV"/>
                                                                             </constraints>
                                                                             <state key="normal" image="icon-add"/>
+                                                                            <connections>
+                                                                                <action selector="addButtonTapped:" destination="4dZ-ks-pTa" eventType="touchUpInside" id="V1O-Dh-Sro"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
@@ -134,6 +140,9 @@
                                                             <state key="normal" title="EXCLUIR" image="icon-delete">
                                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="deleteButtonTapped:" destination="4dZ-ks-pTa" eventType="touchUpInside" id="16D-4r-qgs"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

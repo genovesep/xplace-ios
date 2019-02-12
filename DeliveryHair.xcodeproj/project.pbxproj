@@ -16,7 +16,7 @@
 		DF29BC1F220F2C5E00C0A719 /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */; };
 		DF29BC21220F2F7C00C0A719 /* SuccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */; };
 		DF29BC23220F2F8E00C0A719 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC22220F2F8E00C0A719 /* ErrorObject.swift */; };
-		DF29BC25220F351900C0A719 /* RegisterAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC24220F351900C0A719 /* RegisterAddressResponse.swift */; };
+		DF29BC25220F351900C0A719 /* GenericMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC24220F351900C0A719 /* GenericMessageResponse.swift */; };
 		DF29BC27220F354400C0A719 /* RegisterCepResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC26220F354400C0A719 /* RegisterCepResponse.swift */; };
 		DF29BC29220FB72600C0A719 /* RegisterAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC28220FB72600C0A719 /* RegisterAddress.swift */; };
 		DF2D059C2206195D00F8AD45 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2D059B2206195D00F8AD45 /* Colors.swift */; };
@@ -87,7 +87,7 @@
 		DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessObject.swift; sourceTree = "<group>"; };
 		DF29BC22220F2F8E00C0A719 /* ErrorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
-		DF29BC24220F351900C0A719 /* RegisterAddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddressResponse.swift; sourceTree = "<group>"; };
+		DF29BC24220F351900C0A719 /* GenericMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericMessageResponse.swift; sourceTree = "<group>"; };
 		DF29BC26220F354400C0A719 /* RegisterCepResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCepResponse.swift; sourceTree = "<group>"; };
 		DF29BC28220FB72600C0A719 /* RegisterAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAddress.swift; sourceTree = "<group>"; };
 		DF2D059B2206195D00F8AD45 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 				DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */,
 				DF29BC22220F2F8E00C0A719 /* ErrorObject.swift */,
 				DF4C2D4C220F10B700AA34D2 /* RegisterUserResponse.swift */,
-				DF29BC24220F351900C0A719 /* RegisterAddressResponse.swift */,
+				DF29BC24220F351900C0A719 /* GenericMessageResponse.swift */,
 				DF29BC26220F354400C0A719 /* RegisterCepResponse.swift */,
 				DF29BC28220FB72600C0A719 /* RegisterAddress.swift */,
 				DF0D0C49220FBC090046E2D5 /* PayloadLogin.swift */,
@@ -636,7 +636,7 @@
 				DF6F58892204CD4C00053AE8 /* SelectionVC.swift in Sources */,
 				DF2D05B72208BC4500F8AD45 /* DefaultsIDs.swift in Sources */,
 				DF15659221FF5290009CFC19 /* RegisterAddressVC.swift in Sources */,
-				DF29BC25220F351900C0A719 /* RegisterAddressResponse.swift in Sources */,
+				DF29BC25220F351900C0A719 /* GenericMessageResponse.swift in Sources */,
 				DF2D05A422068A7C00F8AD45 /* CheckCell.swift in Sources */,
 				DFC58C4321F63D9800E217A2 /* UIView+Ext.swift in Sources */,
 				DF79A7C321FF37C60026B857 /* LoginBaseVC.swift in Sources */,
