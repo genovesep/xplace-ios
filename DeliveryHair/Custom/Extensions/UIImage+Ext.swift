@@ -44,7 +44,7 @@ extension UIImage {
 
 extension UIImageView {
     func downloadImage(fromStringUrl stringUrl: String) {
-        let stringURL = String.Services.host + stringUrl
+        let stringURL = kHost + stringUrl
         guard let url = URL(string: stringURL) else { return }        
         let resource = ImageResource(downloadURL: url, cacheKey: stringUrl)
         self.kf.setImage(with: resource)

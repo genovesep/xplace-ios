@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ProductDetailVC: UIViewController {
+class ProductDetailVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -29,7 +29,7 @@ class ProductDetailVC: UIViewController {
         UIApplication.shared.statusBarView?.backgroundColor = Colors.darkPink
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        if let loggedStatus = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as? Bool {
+        if let loggedStatus = UserDefaults.standard.value(forKey: DefaultsIds.isLoggedIn) as? Bool {
             self.isLoggedIn = loggedStatus
         }
         
@@ -39,7 +39,7 @@ class ProductDetailVC: UIViewController {
         productDescriptionLabel.text = product.productDescription.htmlToString
         
         if let pImage = product.productImages {
-            let urlString = String.Services.host + pImage.productImage
+            let urlString = kHost + pImage.productImage
             guard let url = URL(string: urlString) else { return }
             let resource = ImageResource(downloadURL: url)
             productImageView.kf.setImage(with: resource)
@@ -60,12 +60,12 @@ extension ProductDetailVC {
     @IBAction func addToCartButtonTapped(_ sender: UIButton) {
         if let product = product {
             if product.productColors.count > 0 {
-                let vc = UIStoryboard.ViewController.SelectionVC
+                let vc = SelectionVC.instantiateFromDetailStoryboard()
                 vc.hasColors = true
                 vc.product = product
                 navigationController?.pushViewController(vc, animated: true)
             } else if product.productSizes.count > 0 {
-                let vc = UIStoryboard.ViewController.SelectionVC
+                let vc = SelectionVC.instantiateFromDetailStoryboard()
                 vc.hasSizes = true
                 vc.product = product
                 navigationController?.pushViewController(vc, animated: true)
@@ -74,17 +74,18 @@ extension ProductDetailVC {
                 
                 if isLoggedIn {
                     do {
-                        guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
+                        guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIds.cartIdentifier) else {
                             print("THERE IS NO CART SAVED")
                             let cart = Cart.init(products: [item])
-                            try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+                            try! UserDefaults.standard.set(object: cart, forKey: DefaultsIds.cartIdentifier)
+                            backVC()
                             return
                         }
                         
                         var thisCart = cart
                         thisCart.products.append(CartItem(qtt: 1, product: product))
                         
-                        try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
+                        try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIds.cartIdentifier)
                     } catch let err {
                         print(err.localizedDescription)
                     }

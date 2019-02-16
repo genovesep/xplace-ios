@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterVC: LoginBaseVC {
+class RegisterVC: LoginBaseVC, Storyboarded {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var usernameTextField: DeliveryHairTextField!
@@ -63,14 +63,14 @@ extension RegisterVC {
         if checkTextFieldCompletion() {
             guard let name = name, let email = email, let phone = phone, let password = password else { return }
             let user = RegisterUser(name: name, email: email, celNumber: phone, password: password)
-            PostRequest.sharedInstance.post(url: String.Services.POST.regisiterUser, payload: user.payload(), onSuccess: { (response: SuccessObject<RegisterUserResponse>) in
+            PostRequest.sharedInstance.post(url: Services.regisiterUser, payload: user.payload(), onSuccess: { (response: SuccessObject<RegisterUserResponse>) in
                 LoadingVC.sharedInstance.hide()
                 print(response)
                 let status = response.object.status
                 if status {
                     DispatchQueue.main.async {
                         let userId = response.object.user?.id
-                        let vc = UIStoryboard.ViewController.registerAddressVC
+                        let vc = RegisterAddressVC.instantiateFromLoginStoryboard()
                         vc.registerdUserId = userId
                         self.navigationController?.pushViewController(vc, animated: true)
                     }

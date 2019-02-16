@@ -22,9 +22,15 @@ class DeliveryHairTextField: UITextField {
         setupView()
     }
     
+    @IBInspectable var borderColor: UIColor = Colors.darkPink {
+        didSet {
+            setupView()
+        }
+    }
+    
     private func setupView() {
         tintColor = Colors.darkPink
-        layer.borderColor = Colors.darkPink.cgColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = 3
         layer.cornerRadius = 8
         

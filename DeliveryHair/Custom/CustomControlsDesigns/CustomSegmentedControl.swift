@@ -48,7 +48,11 @@ import UIKit
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
             button.setTitleColor(textColor, for: .normal)
-            button.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 12.0)!
+            if buttonTitle.count > 11 {
+                button.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 12.0)!
+            } else {
+                button.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14.0)!
+            }
             button.addTarget(self, action: #selector(selectorButtonTapped(_:)), for: .touchUpInside)
             buttons.append(button)
         }

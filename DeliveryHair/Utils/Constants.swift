@@ -6,7 +6,10 @@
 //  Copyright © 2019 xSistemas. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+// NETWORK
+let kHost = "https://xplace.xsistemas.com.br"
 
 // NOTIFICATION NAMES
 let kNSNotificationName_productLoad     = "didFinishLoadingProducts"
@@ -29,6 +32,23 @@ enum CustomError: Error {
     case couldNotParseCodable
     case couldNotSetCodableObjectInUserDefaults
     case couldNotGetCodableObjectInUserDefaults
+}
+
+enum StoryboardName: String {
+    case Main
+    case ProductDetail
+    case Login
+    case Cart
+    case Profile
+}
+
+enum MenuOption {
+    case home
+    case login
+    case myShoppingList
+    case cart
+    case myProfile
+    case logout
 }
 
 // TWO-CASED ENUMS

@@ -10,41 +10,6 @@ import Foundation
 import UIKit
 
 extension String {
-    enum Services {
-        
-        static var host: String {
-            return "https://xplace.xsistemas.com.br"
-        }
-        
-        enum GET {
-            static var allProducts: String {
-                return host + "/api/products"
-            }
-            
-            static var cep: String { // completar com <num cep>/json/
-                return "https://viacep.com.br/ws/"
-            }
-        }
-        
-        enum POST {
-            static var regisiterUser: String {
-                return host + "/api/register"
-            }
-            
-            static var registerAddress: String {
-                return host + "/api/address"
-            }
-            
-            static var login: String {
-                return host + "/api/login"
-            }
-            
-            static var resetPassword: String {
-                return host + "/api/password"
-            }
-        }
-    }
-    
     static var get: String { return "GET" }
     static var put: String { return "PUT" }
     static var post: String { return "POST" }

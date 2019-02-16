@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectionVC: UIViewController {
+class SelectionVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dhAddToCartButton: DeliveryHairButton!
@@ -31,7 +31,7 @@ class SelectionVC: UIViewController {
         tableView.reloadData()
         dhAddToCartButton.disableButton()
         
-        if let loggedStatus = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as? Bool {
+        if let loggedStatus = UserDefaults.standard.value(forKey: DefaultsIds.isLoggedIn) as? Bool {
             self.isLoggedIn = loggedStatus
         }
     }
@@ -140,17 +140,18 @@ extension SelectionVC {
         
         if isLoggedIn {
             do {
-                guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier) else {
+                guard let cart = try UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIds.cartIdentifier) else {
                     print("THERE IS NO CART SAVED")
                     let cart = Cart.init(products: [item])
-                    try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+                    try! UserDefaults.standard.set(object: cart, forKey: DefaultsIds.cartIdentifier)
+                    backToMainVC()
                     return
                 }
                 
                 var thisCart = cart
                 thisCart.products.append(CartItem(qtt: 1, product: product))
                 
-                try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIDs.cartIdentifier)
+                try! UserDefaults.standard.set(object: thisCart, forKey: DefaultsIds.cartIdentifier)
             } catch let err {
                 print(err.localizedDescription)
             }

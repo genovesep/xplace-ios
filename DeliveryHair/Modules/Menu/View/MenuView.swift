@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol MenuViewDelegate {
-    func didPress(homeLoginButton button: Int)
-}
-
 class MenuView: UIView {
     
     @IBOutlet var contentView: UIView!
@@ -33,7 +29,7 @@ class MenuView: UIView {
         set { emailLabel.text = newValue }
     }
     
-    var delegate: MenuViewDelegate?
+    weak var delegate: MainVC?
     var isLoggedIn = false
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,7 +51,7 @@ class MenuView: UIView {
     }
     
     @objc func checkIfIsLoggedIn() {
-        if let isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIDs.isLoggedIn) as? Bool {
+        if let isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIds.isLoggedIn) as? Bool {
             self.isLoggedIn = isLoggedIn
             if isLoggedIn {
                 loadForProfile()
@@ -69,7 +65,7 @@ class MenuView: UIView {
     
     func loadForProfile() {
         do {
-            let data = try UserDefaults.standard.get(objectType: ResponseLogin.self, forKey: DefaultsIDs.loginData)
+            let data = try UserDefaults.standard.get(objectType: ResponseLogin.self, forKey: DefaultsIds.loginData)
             guard let user = data else { return }
             
             DispatchQueue.main.async {
@@ -125,9 +121,9 @@ class MenuView: UIView {
 extension MenuView {
     @IBAction func didPressLoginHomeButton(_ sender: UIButton) {
         if isLoggedIn {
-            delegate?.didPress(homeLoginButton: 0)
+            delegate?.didPress(menuOption: .home)
         } else {
-            delegate?.didPress(homeLoginButton: 1)
+            delegate?.didPress(menuOption: .login)
         }
     }
     
@@ -136,17 +132,14 @@ extension MenuView {
     }
     
     @IBAction func cartButtonTapped(_ sender: UIButton) {
-        delegate?.didPress(homeLoginButton: 2)
+        delegate?.didPress(menuOption: .cart)
     }
     
     @IBAction func myProfileButtonTapped(_ sender: UIButton) {
-        // TODO - go to myProfile viewController
+        delegate?.didPress(menuOption: .myProfile)
     }
     
-    @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        UserDefaults.standard.set(false, forKey: DefaultsIDs.isLoggedIn)
-        UserDefaults.standard.set(nil, forKey: DefaultsIDs.cartIdentifier)
-        NotificationCenter.default.post(name: NSNotification.Name(kIsLoggedIn), object: nil)
-        delegate?.didPress(homeLoginButton: 0)
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {        
+        delegate?.didPress(menuOption: .logout)
     }
 }

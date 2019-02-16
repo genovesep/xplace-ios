@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DefaultsIDs {
+struct DefaultsIds {
     static let cartIdentifier       = "UserCardIdentifier"
     static let loginData            = "LoginData"
     static let isLoggedIn           = "IsLoggedIn"

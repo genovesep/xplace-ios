@@ -42,13 +42,16 @@ class CartCell: UITableViewCell {
         }
         
         var descriptionString = ""
+        var fPass = true
         if item.product.productSizes.count > 0 {
             let products = item.product.productSizes
-            for (index, product) in products.enumerated() {
-                guard let qtt = product.quantity else { return }
-                if qtt > 0 {
-                    let str = index == 0 ? "\(qtt)x \(product.name)" : "\n\(qtt)x \(product.name)"
-                    descriptionString.append(str)
+            for (_, product) in products.enumerated() {
+                if let qtt = product.quantity {
+                    if qtt > 0 {
+                        let str = fPass ? "\(qtt)x \(product.slug)" : "\n\(qtt)x \(product.slug)"
+                        descriptionString.append(str)
+                        fPass = false
+                    }
                 }
             }
         } else if item.product.productColors.count > 0 {

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, Storyboarded {
     
     private enum CellIdentifier: String {
         case MainCell
@@ -143,12 +143,47 @@ class MainVC: UIViewController {
         tableView.reloadRows(at: [rowToReload as IndexPath], with: .fade)
     }
     
-    // MARK: delegate
+    // MARK: Self Delegates
     func goToDetail(forProduct product: Product) {
         DispatchQueue.main.async {
-            let vc = UIStoryboard.ViewController.ProductDetailVC
+            let vc = ProductDetailVC.instantiateFromDetailStoryboard()
             vc.product = product
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func didPress(menuOption option: MenuOption) {
+        switch option {
+        case .home:
+            self.toggleMenuShowHide()
+        case .login:
+            self.toggleMenuShowHide()
+            DispatchQueue.main.async {
+                let vc = LoginVC.instantiateFromLoginStoryboard()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        case .myShoppingList:
+            self.toggleMenuShowHide()
+            print(option)
+        case .cart:
+            self.toggleMenuShowHide()
+            DispatchQueue.main.async {
+                let vc = CartVC.instantiateFromCartStoryboard()
+                self.navigationController?.navigationBar.tintColor = .white
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        case .myProfile:
+            self.toggleMenuShowHide()
+            DispatchQueue.main.async {
+                let vc = ProfileVC.instantiateFromProfileStoryboard()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        case .logout:
+            self.toggleMenuShowHide()
+            UserDefaults.standard.set(false, forKey: DefaultsIds.isLoggedIn)
+            UserDefaults.standard.set(nil, forKey: DefaultsIds.cartIdentifier)
+            NotificationCenter.default.post(name: NSNotification.Name(kIsLoggedIn), object: nil)
         }
     }
     
@@ -163,7 +198,7 @@ class MainVC: UIViewController {
         }
         
         DispatchQueue.main.async {
-            let vc = UIStoryboard.ViewController.cartVC
+            let vc = CartVC.instantiateFromCartStoryboard()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -202,32 +237,7 @@ class MainVC: UIViewController {
     }
 }
 
-// MARK: extensions
-extension MainVC: MenuViewDelegate {
-    func didPress(homeLoginButton button: Int) {
-        switch button {
-        case 0:
-            self.toggleMenuShowHide()
-        case 1:
-            self.toggleMenuShowHide()
-            DispatchQueue.main.async {
-                let vc = UIStoryboard.ViewController.loginVC
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        case 2:
-            self.toggleMenuShowHide()
-            DispatchQueue.main.async {
-                let vc = UIStoryboard.ViewController.cartVC
-                self.navigationController?.navigationBar.tintColor = .white
-                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        default:
-            break
-        }
-    }
-}
-
+// MARK: Extensions
 extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let device = GenericMethods.sharedInstance.getDevice()

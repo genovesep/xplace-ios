@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForgotPasswordVC: LoginBaseVC {
+class ForgotPasswordVC: LoginBaseVC, Storyboarded {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var phoneTextField: DeliveryHairTextField!
@@ -35,7 +35,7 @@ extension ForgotPasswordVC {
         LoadingVC.sharedInstance.show()
         guard let phone = phoneTextField.text, phoneTextField.text != "" else { return }
         let flatPhone = GenericMethods.sharedInstance.flatFormat(phoneNumber: phone)
-        PostRequest.sharedInstance.post(url: String.Services.POST.resetPassword, payload: ["cel_number":flatPhone], onSuccess: { (response: SuccessObject<GenericMessageResponse>) in
+        PostRequest.sharedInstance.post(url: Services.resetPassword, payload: ["cel_number":flatPhone], onSuccess: { (response: SuccessObject<GenericMessageResponse>) in
             LoadingVC.sharedInstance.hide()
             let status = response.object.status
             if status {

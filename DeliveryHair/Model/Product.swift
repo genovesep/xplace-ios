@@ -71,6 +71,7 @@ struct ProductCategorys: Codable {
 struct ProductSize: Codable {
     let termId: Int
     let name: String
+    let slug: String
     var quantity: Int? = 0
 }
 

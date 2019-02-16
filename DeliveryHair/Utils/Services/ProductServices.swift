@@ -14,7 +14,7 @@ class ProductServices {
     private init() {}
     
     func getAllProducts(completionHandler: @escaping(_ response: [Product]?)->()) {
-        guard let url = URL(string: String.Services.GET.allProducts) else { return }
+        guard let url = URL(string: Services.allProducts) else { return }
         
         var request = URLRequest(url: url,
                                  cachePolicy: .useProtocolCachePolicy,

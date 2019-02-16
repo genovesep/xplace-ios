@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CartVC: UIViewController {
+class CartVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,7 +28,7 @@ class CartVC: UIViewController {
     }
     
     @objc func loadCart() {
-        let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIDs.cartIdentifier)
+        let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIds.cartIdentifier)
         self.cart = cart
         tableView.reloadData()
     }
@@ -37,7 +37,7 @@ class CartVC: UIViewController {
     // MAKR: Delegates
     func updateCartItemQtt(withNewQtt qtt: Int, andProdIndexPath indexPath: IndexPath) {
         self.cart?.products[indexPath.row].qtt = qtt
-        try! UserDefaults.standard.set(object: self.cart, forKey: DefaultsIDs.cartIdentifier)
+        try! UserDefaults.standard.set(object: self.cart, forKey: DefaultsIds.cartIdentifier)
     }
 }
 
@@ -77,7 +77,7 @@ extension CartVC: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             self.cart?.products.remove(at: indexPath.row)
             guard let cart = self.cart else { return }
-            try! UserDefaults.standard.set(object: cart, forKey: DefaultsIDs.cartIdentifier)
+            try! UserDefaults.standard.set(object: cart, forKey: DefaultsIds.cartIdentifier)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
     }

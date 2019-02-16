@@ -31,19 +31,14 @@ struct ResponseLogin: Codable {
         let firstName = String(describing: s[0])
         return firstName
     }
-}
-
-struct Address: Codable {
-    let
-        cep,
-        endereco,
-        numero,
-        complemento,
-        referencia,
-        bairro,
-        cidade,
-        uf
-    : String
+    
+    func getFormattedNumber() -> String {
+        let s = NSString(string: celNumber)
+        let ddd = s.substring(to: 2)
+        let fstHalf = s.substring(with: NSRange(location: 2, length: 5))
+        let sndHalf = s.substring(from: 7)
+        return "(\(ddd))\(fstHalf)-\(sndHalf)"
+    }
 }
 
 struct UserRole: Codable {

@@ -44,7 +44,7 @@ class GenericMethods {
     func save(cart: Cart) {
         do {
             let encoder = try JSONEncoder().encode(cart)
-            UserDefaults.standard.set(encoder, forKey: DefaultsIDs.cartIdentifier)
+            UserDefaults.standard.set(encoder, forKey: DefaultsIds.cartIdentifier)
         } catch let err {
             print("FAILED TO ENCODE: ", err.localizedDescription)
         }

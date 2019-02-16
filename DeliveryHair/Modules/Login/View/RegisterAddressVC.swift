@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterAddressVC: LoginBaseVC {
+class RegisterAddressVC: LoginBaseVC, Storyboarded {
 
     @IBOutlet weak var titleLabel:              UILabel!
     @IBOutlet weak var cepTextField:            DeliveryHairTextField!
@@ -22,43 +22,44 @@ class RegisterAddressVC: LoginBaseVC {
     @IBOutlet weak var dhRegisterButton:        DeliveryHairButton!
     
     var registerdUserId: Int!
+    private var isLoggedIn: Bool?
     
-    var cep: String {
+    private var cep: String {
         get { return (cepTextField.text?.replacingOccurrences(of: "-", with: ""))! }
         set { }
     }
     
-    var uf: String {
+    private var uf: String {
         get { return (ufTextField?.text)! }
         set { }
     }
     
-    var city: String {
+    private var city: String {
         get { return (cityTextField?.text)! }
         set { }
     }
     
-    var neigh: String {
+    private var neigh: String {
         get { return (neighTextField?.text)! }
         set { }
     }
     
-    var street: String {
+    private var street: String {
         get { return (streetTextField?.text)! }
         set { }
     }
     
-    var complement: String {
+    private var complement: String {
         get { return (complementTextField?.text)! }
         set { }
     }
     
-    var number: String {
+    private var number: String {
         get { return (numberTextField?.text)! }
         set { }
     }
     
-    var reference: String {
+    private var reference: String {
         get { return (refTextField?.text)! }
         set { }
     }
@@ -66,6 +67,24 @@ class RegisterAddressVC: LoginBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let isLoggedIn = UserDefaults.standard.value(forKey: DefaultsIds.isLoggedIn) as? Bool {
+            self.isLoggedIn = isLoggedIn
+            if isLoggedIn {
+                do {
+                    guard let userData = try UserDefaults.standard.get(objectType: ResponseLogin.self, forKey: DefaultsIds.loginData) else { return }
+                    let userId = userData.userId
+                    registerdUserId = userId
+                } catch CustomError.couldNotGetCodableObjectInUserDefaults {
+                    print(ErrorMessages.couldNotGetCodableObjectInUserDefaults)
+                } catch let e {
+                    print("SYSTEM ERROR: ", e.localizedDescription)
+                }
+            }
+        }
     }
     
     func setupView() {
@@ -104,15 +123,27 @@ extension RegisterAddressVC {
         if checkRequiredData() {
             LoadingVC.sharedInstance.show()
             let address = RegisterAddress(userId: registerdUserId, cep: cep, logradouro: street, numero: number, complemento: complement, referencia: reference, bairro: neigh, cidade: city, uf: uf)
-            PostRequest.sharedInstance.post(url: String.Services.POST.registerAddress, payload: address.payload(), onSuccess: { (response: SuccessObject<GenericMessageResponse>) in
+            PostRequest.sharedInstance.post(url: Services.registerAddress, payload: address.payload(), onSuccess: { (response: SuccessObject<GenericMessageResponse>) in
                 LoadingVC.sharedInstance.hide()
                 print(response.object)
                 DispatchQueue.main.async {
-                    self.navigationController?.viewControllers.forEach({ (controller) in
-                        if controller.isKind(of: LoginVC.self) {
-                            self.navigationController?.popToViewController(controller, animated: true)
+                    if let isLoggedIn = self.isLoggedIn {
+                        if isLoggedIn {
+                            self.navigationController?.popViewController(animated: true)
+                        } else {
+                            self.navigationController?.viewControllers.forEach({ (controller) in
+                                if controller.isKind(of: LoginVC.self) {
+                                    self.navigationController?.popToViewController(controller, animated: true)
+                                }
+                            })
                         }
-                    })
+                    } else {
+                        self.navigationController?.viewControllers.forEach({ (controller) in
+                            if controller.isKind(of: LoginVC.self) {
+                                self.navigationController?.popToViewController(controller, animated: true)
+                            }
+                        })
+                    }
                 }
             }) { (response) in
                 LoadingVC.sharedInstance.hide()
@@ -130,7 +161,7 @@ extension RegisterAddressVC: UITextFieldDelegate {
         if textField == cepTextField {
             guard let cep = textField.text else { return }
             LoadingVC.sharedInstance.show()
-            GetRequest.sharedInstance.get(url: String.Services.GET.cep + "\(cep)/json/", onSuccess: { (response: SuccessObject<RegisterCepResponse>) in
+            GetRequest.sharedInstance.get(url: Services.cep + "\(cep)/json/", onSuccess: { (response: SuccessObject<RegisterCepResponse>) in
                 LoadingVC.sharedInstance.hide()
                 self.populateTextFields(withAddressInfo: response.object)
             }) { (response) in

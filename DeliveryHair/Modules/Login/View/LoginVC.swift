@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: LoginBaseVC {
+class LoginVC: LoginBaseVC, Storyboarded {
     
     @IBOutlet weak var titleLabel:              UILabel!
     @IBOutlet weak var containerView:           UIView!
@@ -63,25 +63,25 @@ class LoginVC: LoginBaseVC {
 
 extension LoginVC {
     @IBAction func didPressRegisterButton(_ sender: UIButton) {
-        let vc = UIStoryboard.ViewController.registerVC
+        let vc = RegisterVC.instantiateFromLoginStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func didPressForgotPasswordButton(_ sender: UIButton) {
-        let vc = UIStoryboard.ViewController.forgotPasswordVC
+        let vc = ForgotPasswordVC.instantiateFromLoginStoryboard()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         LoadingVC.sharedInstance.show()
         let loginData = PayloadLogin(celNumber: username, password: password, token: "?")
-        PostRequest.sharedInstance.post(url: String.Services.POST.login, payload: loginData.payload(), onSuccess: { (response: SuccessObject<ResponseLogin>) in
+        PostRequest.sharedInstance.post(url: Services.login, payload: loginData.payload(), onSuccess: { (response: SuccessObject<ResponseLogin>) in
             LoadingVC.sharedInstance.hide()
             let status = response.object.status
             if status {
                 let object = response.object
-                try! UserDefaults.standard.set(object: object, forKey: DefaultsIDs.loginData)
-                UserDefaults.standard.set(true, forKey: DefaultsIDs.isLoggedIn)
+                try! UserDefaults.standard.set(object: object, forKey: DefaultsIds.loginData)
+                UserDefaults.standard.set(true, forKey: DefaultsIds.isLoggedIn)
                 NotificationCenter.default.post(name: NSNotification.Name(kIsLoggedIn), object: nil)
                 
                 DispatchQueue.main.async {

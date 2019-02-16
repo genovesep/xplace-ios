@@ -15,7 +15,7 @@ class GetRequest {
     
     private var url: String!
     
-    func createGetRequest() throws -> URLRequest? {
+    private func createGetRequest() throws -> URLRequest? {
         guard let url = URL(string: url) else {
             throw CustomError.couldNotParseUrl
         }
