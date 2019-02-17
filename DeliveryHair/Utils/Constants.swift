@@ -40,6 +40,7 @@ enum StoryboardName: String {
     case Login
     case Cart
     case Profile
+    case Card
 }
 
 enum MenuOption {
@@ -49,6 +50,15 @@ enum MenuOption {
     case cart
     case myProfile
     case logout
+}
+
+enum CardType: Int {
+    case mastercard = 5
+    case visa = 4
+    case americanExpress = 3
+    case discover = 6
+    case enRoute = 2
+    case voyager = 8
 }
 
 // TWO-CASED ENUMS

@@ -40,4 +40,10 @@ extension Storyboarded where Self: UIViewController {
         let storyboard = UIStoryboard(name: StoryboardName.Profile.rawValue, bundle: Bundle.main)
         return storyboard.instantiateViewController(withIdentifier: storyboardId) as! Self
     }
+    
+    static func instantiateFromCardStoryboard() -> Self {
+        let storyboardId = String(describing: self)
+        let storyboard = UIStoryboard(name: StoryboardName.Card.rawValue, bundle: Bundle.main)
+        return storyboard.instantiateViewController(withIdentifier: storyboardId) as! Self
+    }
 }

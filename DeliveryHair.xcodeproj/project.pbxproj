@@ -14,6 +14,8 @@
 		DF15659421FF54C2009CFC19 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF15659321FF54C2009CFC19 /* UIImage+Ext.swift */; };
 		DF160ACD2215B850009B6EC4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF160ACC2215B850009B6EC4 /* Card.swift */; };
 		DF160ACF2215C9E8009B6EC4 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF160ACE2215C9E8009B6EC4 /* Fonts.swift */; };
+		DF160AD622185A75009B6EC4 /* CardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF160AD522185A75009B6EC4 /* CardVC.swift */; };
+		DF160AD822185A86009B6EC4 /* Card.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF160AD722185A86009B6EC4 /* Card.storyboard */; };
 		DF19301921F5F33B00C1A3EA /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF19301721F5F33B00C1A3EA /* MenuView.xib */; };
 		DF29BC1F220F2C5E00C0A719 /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */; };
 		DF29BC21220F2F7C00C0A719 /* SuccessObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */; };
@@ -56,6 +58,7 @@
 		DF79A7C321FF37C60026B857 /* LoginBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A7C221FF37C60026B857 /* LoginBaseVC.swift */; };
 		DF79A7C621FF42BC0026B857 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A7C521FF42BC0026B857 /* RegisterVC.swift */; };
 		DF79A7CA21FF46AA0026B857 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79A7C921FF46AA0026B857 /* ForgotPasswordVC.swift */; };
+		DF838C232218F7CF008A7571 /* ResponseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF838C222218F7CF008A7571 /* ResponseCard.swift */; };
 		DF99D58F21EF92BE00D03913 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D58E21EF92BE00D03913 /* AppDelegate.swift */; };
 		DF99D59121EF92BE00D03913 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D59021EF92BE00D03913 /* MainVC.swift */; };
 		DF99D59421EF92BE00D03913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF99D59221EF92BE00D03913 /* Main.storyboard */; };
@@ -95,6 +98,8 @@
 		DF15659321FF54C2009CFC19 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		DF160ACC2215B850009B6EC4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DF160ACE2215C9E8009B6EC4 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		DF160AD522185A75009B6EC4 /* CardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVC.swift; sourceTree = "<group>"; };
+		DF160AD722185A86009B6EC4 /* Card.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Card.storyboard; sourceTree = "<group>"; };
 		DF19301721F5F33B00C1A3EA /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		DF29BC20220F2F7C00C0A719 /* SuccessObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessObject.swift; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 		DF79A7C221FF37C60026B857 /* LoginBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBaseVC.swift; sourceTree = "<group>"; };
 		DF79A7C521FF42BC0026B857 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		DF79A7C921FF46AA0026B857 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		DF838C222218F7CF008A7571 /* ResponseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCard.swift; sourceTree = "<group>"; };
 		DF99D58B21EF92BE00D03913 /* DeliveryHair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryHair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF99D58E21EF92BE00D03913 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF99D59021EF92BE00D03913 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -195,6 +201,15 @@
 				6850D08E546DA95BB5268054 /* Pods_DeliveryHair.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF160AD422185A5F009B6EC4 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				DF160AD522185A75009B6EC4 /* CardVC.swift */,
+				DF160AD722185A86009B6EC4 /* Card.storyboard */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 		DF19301521F5F31100C1A3EA /* Menu */ = {
@@ -365,6 +380,7 @@
 		DF99D5AE21EFE9BD00D03913 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DF160AD422185A5F009B6EC4 /* Card */,
 				DFF75C25221385FB00701069 /* Profile */,
 				DF2D05A922089D3000F8AD45 /* Cart */,
 				DF79A78E21FDC58B0026B857 /* Login */,
@@ -455,6 +471,7 @@
 				DFF75C3522146BCD00701069 /* Address.swift */,
 				DF160ACC2215B850009B6EC4 /* Card.swift */,
 				DF160ACE2215C9E8009B6EC4 /* Fonts.swift */,
+				DF838C222218F7CF008A7571 /* ResponseCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +611,7 @@
 				DF60F02D21F8A22D005306BD /* Roboto-Italic.ttf in Resources */,
 				DF99D59921EF92C000D03913 /* Assets.xcassets in Resources */,
 				DF99D59421EF92BE00D03913 /* Main.storyboard in Resources */,
+				DF160AD822185A86009B6EC4 /* Card.storyboard in Resources */,
 				DF79A79221FDC5A40026B857 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +690,7 @@
 				DF79A79F21FDDB380026B857 /* RoundContainerView.swift in Sources */,
 				DF99D5B821EFEF1F00D03913 /* Color+Ext.swift in Sources */,
 				DF60F02721F883E8005306BD /* Numbers+Ext.swift in Sources */,
+				DF160AD622185A75009B6EC4 /* CardVC.swift in Sources */,
 				DF0D0C4C220FBD660046E2D5 /* ResponseLogin.swift in Sources */,
 				DF6F58802204826A00053AE8 /* GenericMethods.swift in Sources */,
 				DF4C2D49220F07C800AA34D2 /* ErrorMessages.swift in Sources */,
@@ -707,6 +726,7 @@
 				DF79A79A21FDD8EA0026B857 /* DeliveryHairButton.swift in Sources */,
 				DF2D05AF2208A5BD00F8AD45 /* CartVC.swift in Sources */,
 				DF4C2D4D220F10B700AA34D2 /* RegisterUserResponse.swift in Sources */,
+				DF838C232218F7CF008A7571 /* ResponseCard.swift in Sources */,
 				DF79A79821FDD69A0026B857 /* DeliveryHairTextField.swift in Sources */,
 				DF79A79C21FDD9BF0026B857 /* CustomButton.swift in Sources */,
 				DF79A7CA21FF46AA0026B857 /* ForgotPasswordVC.swift in Sources */,

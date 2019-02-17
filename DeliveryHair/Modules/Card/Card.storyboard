@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Cadastrar Cartão-->
+        <scene sceneID="2mf-47-ZnL">
+            <objects>
+                <viewController storyboardIdentifier="CardVC" id="s97-q5-mzY" customClass="CardVC" customModule="DeliveryHair" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7It-G9-nIG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Lz2-Kr-dmj">
+                                <rect key="frame" x="30" y="281" width="315" height="250"/>
+                                <subviews>
+                                    <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome no cartão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9s-4g-Hz1" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="47.666666666666664"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Número do cartão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HOY-nT-gUd" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="67.666666666666686" width="315" height="47.333333333333343"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartQuotesType="no"/>
+                                    </textField>
+                                    <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vencimento do cartão" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RVG-qa-zas" customClass="DeliveryHairTextField" customModule="DeliveryHair" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="135" width="315" height="47.666666666666657"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5Y-Qf-0qn" customClass="DeliveryHairButton" customModule="DeliveryHair" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="202.66666666666669" width="315" height="47.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="Adicionar Cartão">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addCardButtonTapped:" destination="s97-q5-mzY" eventType="touchUpInside" id="zS5-jV-gWJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="oZa-M1-VLc"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lz2-Kr-dmj" firstAttribute="centerX" secondItem="7It-G9-nIG" secondAttribute="centerX" id="1VU-UQ-oK5"/>
+                            <constraint firstItem="Lz2-Kr-dmj" firstAttribute="leading" secondItem="xFP-Rk-Tmz" secondAttribute="leading" constant="30" id="GN0-ca-cyE"/>
+                            <constraint firstItem="Lz2-Kr-dmj" firstAttribute="centerY" secondItem="7It-G9-nIG" secondAttribute="centerY" id="eUk-tI-fYe"/>
+                            <constraint firstItem="xFP-Rk-Tmz" firstAttribute="trailing" secondItem="Lz2-Kr-dmj" secondAttribute="trailing" constant="30" id="wDd-sX-lAJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xFP-Rk-Tmz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cadastrar Cartão" id="3yq-qM-wLT">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Kdi-T4-8OS"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addCardButton" destination="t5Y-Qf-0qn" id="O83-xQ-Xjo"/>
+                        <outlet property="cardNameTextField" destination="h9s-4g-Hz1" id="hVB-k8-c4n"/>
+                        <outlet property="cardNumberTextField" destination="HOY-nT-gUd" id="upS-20-6Jw"/>
+                        <outlet property="cardVencDateTextField" destination="RVG-qa-zas" id="gv8-QW-nWD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXJ-Jt-W5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="524" y="143"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8wv-lO-Wch">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9G8-Hf-ToN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f8x-Au-SKx">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.6588235294" green="0.15686274510000001" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="s97-q5-mzY" kind="relationship" relationship="rootViewController" id="8YE-9K-rr0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDf-1S-qvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-218.40000000000001" y="143.3497536945813"/>
+        </scene>
+    </scenes>
+</document>

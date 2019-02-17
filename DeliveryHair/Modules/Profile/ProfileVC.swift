@@ -69,7 +69,8 @@ extension ProfileVC {
             let vc = RegisterAddressVC.instantiateFromLoginStoryboard()
             navigationController?.pushViewController(vc, animated: true)
         case myCardVC:
-            print("call add card view controller")
+            let vc = CardVC.instantiateFromCardStoryboard()
+            navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }

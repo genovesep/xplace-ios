@@ -17,4 +17,5 @@ struct Services {
     static var resetPassword        = kHost + "/api/password"
     static var getAddressList       = kHost + "/api/address/"
     static var getCardList          = kHost + "/api/payment/credcard/"
+    static var addCard              = kHost + "/api/payment/credcard"
 }

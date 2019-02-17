@@ -11,7 +11,7 @@ import UIKit
 class MyCardVC: UITableViewController, Storyboarded {
 
     private var dispatchGroup = DispatchGroup()
-    private var cardArr: [Card]?
+    private var cardArr: [ResponseCard]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class MyCardVC: UITableViewController, Storyboarded {
         dispatchGroup.enter()
         guard let userData = try! UserDefaults.standard.get(objectType: ResponseLogin.self, forKey: DefaultsIds.loginData) else { return }
         let userId = userData.userId
-        GetRequest.sharedInstance.get(url: Services.getCardList + "\(userId)", onSuccess: { (response: SuccessObject<[Card]>) in
+        GetRequest.sharedInstance.get(url: Services.getCardList + "\(userId)", onSuccess: { (response: SuccessObject<[ResponseCard]>) in
             LoadingVC.sharedInstance.hide()
             let object = response.object
             self.cardArr = object
@@ -88,6 +88,10 @@ extension MyCardVC {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CardCell") else { return UITableViewCell() }
+        guard let cardArr = self.cardArr else { return UITableViewCell() }
+        cell.textLabel?.text = cardArr[indexPath.row].getCardNumber()
+        cell.detailTextLabel?.text = cardArr[indexPath.row].cardVencDate
+        return cell
     }
 }

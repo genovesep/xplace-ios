@@ -13,4 +13,5 @@ struct CellIdentifier {
     static let checkCell        = "CheckCell"
     static let cartCell         = "CartCell"
     static let addressCell      = "AddressCell"
+    static let cardCell         = "CardCell"
 }
