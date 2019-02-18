@@ -13,12 +13,19 @@ class MyCardVC: UITableViewController, Storyboarded {
     private var dispatchGroup = DispatchGroup()
     private var cardArr: [ResponseCard]?
     
+    weak var delegate: CheckoutVC?
+    var fromCell: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
     func setupView() {
+        if let _ = fromCell {
+            self.title = "Cartões"
+        }
+        
         LoadingVC.sharedInstance.show()
         
         refreshControl = UIRefreshControl()
@@ -93,5 +100,11 @@ extension MyCardVC {
         cell.textLabel?.text = cardArr[indexPath.row].getCardNumber()
         cell.detailTextLabel?.text = cardArr[indexPath.row].cardVencDate
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.popViewController(animated: true)
+        guard let card = cardArr?[indexPath.row] else { return }
+        delegate?.didSelectDelegate(card: card)
     }
 }

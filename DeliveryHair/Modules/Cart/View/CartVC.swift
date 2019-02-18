@@ -47,7 +47,9 @@ extension CartVC {
     }
     
     @IBAction func buyButtonTapped(_ sender: UIButton) {
-        
+        let vc = CheckoutVC.instantiateFromCheckoutStoryboard()
+        vc.cart = cart
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -80,5 +82,9 @@ extension CartVC: UITableViewDelegate, UITableViewDataSource {
             try! UserDefaults.standard.set(object: cart, forKey: DefaultsIds.cartIdentifier)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remover"
     }
 }

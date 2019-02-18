@@ -13,6 +13,9 @@ class MyAddressVC: UITableViewController, Storyboarded {
     private var dispatchGroup = DispatchGroup()
     private var addressArr: [Address]?
     
+    weak var delegate: CheckoutVC?
+    var fromCell: Bool?
+    
     var addressArray: [Address] {
         get { return addressArr ?? [] }
     }
@@ -23,6 +26,10 @@ class MyAddressVC: UITableViewController, Storyboarded {
     }
     
     func setupView() {
+        if let _ = fromCell {
+            self.title = "Endereços"
+        }
+        
         LoadingVC.sharedInstance.show()
         
         refreshControl = UIRefreshControl()
@@ -94,5 +101,11 @@ extension MyAddressVC {
         cell.detailTextLabel?.text = addressArray[indexPath.row].bairro
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.popViewController(animated: true)
+        guard let address = addressArr?[indexPath.row] else { return }
+        delegate?.didSelectDelegate(address: address)
     }
 }

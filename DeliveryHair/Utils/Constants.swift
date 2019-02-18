@@ -41,6 +41,7 @@ enum StoryboardName: String {
     case Cart
     case Profile
     case Card
+    case Checkout
 }
 
 enum MenuOption {

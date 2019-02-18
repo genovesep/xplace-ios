@@ -72,6 +72,9 @@
 		DF99D5BB21F0060800D03913 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5BA21F0060800D03913 /* Product.swift */; };
 		DF99D5BE21F008D200D03913 /* ProductServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5BD21F008D200D03913 /* ProductServices.swift */; };
 		DF99D5C221F00D4C00D03913 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5C121F00D4C00D03913 /* String+Ext.swift */; };
+		DFC11156221B0C7B00312A46 /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFC11155221B0C7B00312A46 /* Checkout.storyboard */; };
+		DFC11159221B0CF000312A46 /* CheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC11158221B0CF000312A46 /* CheckoutVC.swift */; };
+		DFC1115C221B0F7200312A46 /* CheckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC1115B221B0F7200312A46 /* CheckoutCell.swift */; };
 		DFC58C3F21F62EBD00E217A2 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC58C3E21F62EBD00E217A2 /* GradientView.swift */; };
 		DFC58C4121F6327100E217A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC58C4021F6327100E217A2 /* Constants.swift */; };
 		DFC58C4321F63D9800E217A2 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC58C4221F63D9800E217A2 /* UIView+Ext.swift */; };
@@ -158,6 +161,9 @@
 		DF99D5BA21F0060800D03913 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		DF99D5BD21F008D200D03913 /* ProductServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServices.swift; sourceTree = "<group>"; };
 		DF99D5C121F00D4C00D03913 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		DFC11155221B0C7B00312A46 /* Checkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
+		DFC11158221B0CF000312A46 /* CheckoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutVC.swift; sourceTree = "<group>"; };
+		DFC1115B221B0F7200312A46 /* CheckoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCell.swift; sourceTree = "<group>"; };
 		DFC58C3E21F62EBD00E217A2 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DFC58C4021F6327100E217A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DFC58C4221F63D9800E217A2 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -380,6 +386,7 @@
 		DF99D5AE21EFE9BD00D03913 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DFC1114F221B0C2500312A46 /* Checkout */,
 				DF160AD422185A5F009B6EC4 /* Card */,
 				DFF75C25221385FB00701069 /* Profile */,
 				DF2D05A922089D3000F8AD45 /* Cart */,
@@ -486,6 +493,67 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		DFC1114F221B0C2500312A46 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				DFC1115A221B0F6300312A46 /* Cell */,
+				DFC11157221B0CE000312A46 /* View */,
+				DFC11154221B0C5A00312A46 /* UI */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		DFC11150221B0C3500312A46 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DFF75C26221390ED00701069 /* Profile.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DFC11151221B0C3B00312A46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFF75C28221430F400701069 /* ProfileVC.swift */,
+				DFF75C2D221444A200701069 /* MyProfileVC.swift */,
+				DFF75C2F221444B100701069 /* MyAddressVC.swift */,
+				DFF75C31221444BD00701069 /* MyCardVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DFC11152221B0C4D00312A46 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DFF75C372214751300701069 /* AddressCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DFC11154221B0C5A00312A46 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DFC11155221B0C7B00312A46 /* Checkout.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DFC11157221B0CE000312A46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFC11158221B0CF000312A46 /* CheckoutVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DFC1115A221B0F6300312A46 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DFC1115B221B0F7200312A46 /* CheckoutCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DFC58C3A21F625EE00E217A2 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,12 +597,9 @@
 		DFF75C25221385FB00701069 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				DFF75C26221390ED00701069 /* Profile.storyboard */,
-				DFF75C28221430F400701069 /* ProfileVC.swift */,
-				DFF75C2D221444A200701069 /* MyProfileVC.swift */,
-				DFF75C2F221444B100701069 /* MyAddressVC.swift */,
-				DFF75C31221444BD00701069 /* MyCardVC.swift */,
-				DFF75C372214751300701069 /* AddressCell.swift */,
+				DFC11152221B0C4D00312A46 /* Cell */,
+				DFC11151221B0C3B00312A46 /* View */,
+				DFC11150221B0C3500312A46 /* UI */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -609,6 +674,7 @@
 				DF60F02F21F8A22D005306BD /* Roboto-Medium.ttf in Resources */,
 				DF6F58872204B33100053AE8 /* ProductDetail.storyboard in Resources */,
 				DF60F02D21F8A22D005306BD /* Roboto-Italic.ttf in Resources */,
+				DFC11156221B0C7B00312A46 /* Checkout.storyboard in Resources */,
 				DF99D59921EF92C000D03913 /* Assets.xcassets in Resources */,
 				DF99D59421EF92BE00D03913 /* Main.storyboard in Resources */,
 				DF160AD822185A86009B6EC4 /* Card.storyboard in Resources */,
@@ -673,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF0D0C4A220FBC090046E2D5 /* PayloadLogin.swift in Sources */,
+				DFC1115C221B0F7200312A46 /* CheckoutCell.swift in Sources */,
 				DF29BC21220F2F7C00C0A719 /* SuccessObject.swift in Sources */,
 				DF2D059F220689FF00F8AD45 /* CellIdentifier.swift in Sources */,
 				DF4C2D47220F066F00AA34D2 /* PostRequest.swift in Sources */,
@@ -723,6 +790,7 @@
 				DF99D5BB21F0060800D03913 /* Product.swift in Sources */,
 				DFF75C382214751300701069 /* AddressCell.swift in Sources */,
 				DF99D5A721EF990800D03913 /* CarouselCell.swift in Sources */,
+				DFC11159221B0CF000312A46 /* CheckoutVC.swift in Sources */,
 				DF79A79A21FDD8EA0026B857 /* DeliveryHairButton.swift in Sources */,
 				DF2D05AF2208A5BD00F8AD45 /* CartVC.swift in Sources */,
 				DF4C2D4D220F10B700AA34D2 /* RegisterUserResponse.swift in Sources */,
