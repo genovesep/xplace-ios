@@ -11,6 +11,7 @@ import UIKit
 class CartVC: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buyButton: DeliveryHairButton!
     
     weak var delegate: MainVC?
     var cart: Cart?
@@ -31,8 +32,19 @@ class CartVC: UIViewController, Storyboarded {
         let cart = try! UserDefaults.standard.get(objectType: Cart.self, forKey: DefaultsIds.cartIdentifier)
         self.cart = cart
         tableView.reloadData()
+        validateCartForButton()
     }
     
+    func validateCartForButton() {
+        guard let cart = self.cart else {
+            buyButton.disableButton()
+            return
+        }
+        
+        if cart.products.count == 0 {
+            buyButton.disableButton()
+        }
+    }
     
     // MAKR: Delegates
     func updateCartItemQtt(withNewQtt qtt: Int, andProdIndexPath indexPath: IndexPath) {

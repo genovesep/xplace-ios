@@ -277,6 +277,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="buyButton" destination="esP-b9-Lbe" id="0Uh-2l-nS6"/>
                         <outlet property="tableView" destination="kti-Um-jPY" id="Pwz-DT-lOQ"/>
                     </connections>
                 </viewController>
