@@ -72,6 +72,9 @@
 		DF99D5BB21F0060800D03913 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5BA21F0060800D03913 /* Product.swift */; };
 		DF99D5BE21F008D200D03913 /* ProductServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5BD21F008D200D03913 /* ProductServices.swift */; };
 		DF99D5C221F00D4C00D03913 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF99D5C121F00D4C00D03913 /* String+Ext.swift */; };
+		DFB36A2A221D7DDA002F7890 /* ResponseZoopPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB36A29221D7DDA002F7890 /* ResponseZoopPayment.swift */; };
+		DFB36A33221D83D9002F7890 /* CardCvvVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB36A31221D83D9002F7890 /* CardCvvVC.swift */; };
+		DFB36A34221D83D9002F7890 /* CardCvvVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB36A32221D83D9002F7890 /* CardCvvVC.xib */; };
 		DFC11156221B0C7B00312A46 /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFC11155221B0C7B00312A46 /* Checkout.storyboard */; };
 		DFC11159221B0CF000312A46 /* CheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC11158221B0CF000312A46 /* CheckoutVC.swift */; };
 		DFC1115C221B0F7200312A46 /* CheckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC1115B221B0F7200312A46 /* CheckoutCell.swift */; };
@@ -88,7 +91,6 @@
 		DFF75C32221444BD00701069 /* MyCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF75C31221444BD00701069 /* MyCardVC.swift */; };
 		DFF75C342214583C00701069 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF75C332214583C00701069 /* Services.swift */; };
 		DFF75C3622146BCD00701069 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF75C3522146BCD00701069 /* Address.swift */; };
-		DFF75C382214751300701069 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF75C372214751300701069 /* AddressCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +163,9 @@
 		DF99D5BA21F0060800D03913 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		DF99D5BD21F008D200D03913 /* ProductServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServices.swift; sourceTree = "<group>"; };
 		DF99D5C121F00D4C00D03913 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		DFB36A29221D7DDA002F7890 /* ResponseZoopPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseZoopPayment.swift; sourceTree = "<group>"; };
+		DFB36A31221D83D9002F7890 /* CardCvvVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCvvVC.swift; sourceTree = "<group>"; };
+		DFB36A32221D83D9002F7890 /* CardCvvVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCvvVC.xib; sourceTree = "<group>"; };
 		DFC11155221B0C7B00312A46 /* Checkout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
 		DFC11158221B0CF000312A46 /* CheckoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutVC.swift; sourceTree = "<group>"; };
 		DFC1115B221B0F7200312A46 /* CheckoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCell.swift; sourceTree = "<group>"; };
@@ -177,7 +182,6 @@
 		DFF75C31221444BD00701069 /* MyCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardVC.swift; sourceTree = "<group>"; };
 		DFF75C332214583C00701069 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		DFF75C3522146BCD00701069 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		DFF75C372214751300701069 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +440,7 @@
 		DF99D5B321EFEA1E00D03913 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				DFB36A2D221D838D002F7890 /* Popups */,
 				DF99D5B621EFEF0C00D03913 /* Extensions */,
 				DF79A79D21FDD9E20026B857 /* CustomControlsDesigns */,
 			);
@@ -479,6 +484,7 @@
 				DF160ACC2215B850009B6EC4 /* Card.swift */,
 				DF160ACE2215C9E8009B6EC4 /* Fonts.swift */,
 				DF838C222218F7CF008A7571 /* ResponseCard.swift */,
+				DFB36A29221D7DDA002F7890 /* ResponseZoopPayment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -491,6 +497,39 @@
 				DF29BC1E220F2C5E00C0A719 /* GetRequest.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DFB36A2D221D838D002F7890 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				DFB36A2E221D8392002F7890 /* CardCVVPopup */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		DFB36A2E221D8392002F7890 /* CardCVVPopup */ = {
+			isa = PBXGroup;
+			children = (
+				DFB36A36221DB32A002F7890 /* View */,
+				DFB36A35221DB325002F7890 /* UI */,
+			);
+			path = CardCVVPopup;
+			sourceTree = "<group>";
+		};
+		DFB36A35221DB325002F7890 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DFB36A32221D83D9002F7890 /* CardCvvVC.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DFB36A36221DB32A002F7890 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFB36A31221D83D9002F7890 /* CardCvvVC.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DFC1114F221B0C2500312A46 /* Checkout */ = {
@@ -520,14 +559,6 @@
 				DFF75C31221444BD00701069 /* MyCardVC.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		DFC11152221B0C4D00312A46 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				DFF75C372214751300701069 /* AddressCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		DFC11154221B0C5A00312A46 /* UI */ = {
@@ -597,7 +628,6 @@
 		DFF75C25221385FB00701069 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				DFC11152221B0C4D00312A46 /* Cell */,
 				DFC11151221B0C3B00312A46 /* View */,
 				DFC11150221B0C3500312A46 /* UI */,
 			);
@@ -664,6 +694,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFB36A34221D83D9002F7890 /* CardCvvVC.xib in Resources */,
 				DF99D59C21EF92C000D03913 /* LaunchScreen.storyboard in Resources */,
 				DF79A7A121FDE60A0026B857 /* grapedragon.ttf in Resources */,
 				DF19301921F5F33B00C1A3EA /* MenuView.xib in Resources */,
@@ -776,6 +807,7 @@
 				DFC58C3F21F62EBD00E217A2 /* GradientView.swift in Sources */,
 				DF99D59121EF92BE00D03913 /* MainVC.swift in Sources */,
 				DF2D05A62208552700F8AD45 /* CustomSegmentedControl.swift in Sources */,
+				DFB36A2A221D7DDA002F7890 /* ResponseZoopPayment.swift in Sources */,
 				DF99D5A921EFA12A00D03913 /* ItemCell.swift in Sources */,
 				DFF75C2E221444A200701069 /* MyProfileVC.swift in Sources */,
 				DF4C2D4B220F0CA100AA34D2 /* RegisterUser.swift in Sources */,
@@ -788,7 +820,6 @@
 				DF15659421FF54C2009CFC19 /* UIImage+Ext.swift in Sources */,
 				DFF5B57621F5FFF700B726F1 /* MenuView.swift in Sources */,
 				DF99D5BB21F0060800D03913 /* Product.swift in Sources */,
-				DFF75C382214751300701069 /* AddressCell.swift in Sources */,
 				DF99D5A721EF990800D03913 /* CarouselCell.swift in Sources */,
 				DFC11159221B0CF000312A46 /* CheckoutVC.swift in Sources */,
 				DF79A79A21FDD8EA0026B857 /* DeliveryHairButton.swift in Sources */,
@@ -801,6 +832,7 @@
 				DFF75C29221430F400701069 /* ProfileVC.swift in Sources */,
 				DF2D05A222068A6D00F8AD45 /* VolumesCell.swift in Sources */,
 				DF99D5C221F00D4C00D03913 /* String+Ext.swift in Sources */,
+				DFB36A33221D83D9002F7890 /* CardCvvVC.swift in Sources */,
 				DF99D5BE21F008D200D03913 /* ProductServices.swift in Sources */,
 				DFF5B57921F6110E00B726F1 /* LoadingVC.swift in Sources */,
 				DF79A7C621FF42BC0026B857 /* RegisterVC.swift in Sources */,

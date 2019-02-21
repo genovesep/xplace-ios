@@ -62,4 +62,8 @@ enum CardType: Int {
     case voyager = 8
 }
 
+enum PopupType {
+    case cardCvv
+}
+
 // TWO-CASED ENUMS

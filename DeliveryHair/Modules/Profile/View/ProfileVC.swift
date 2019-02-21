@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileVC: UIViewController, Storyboarded {
 
-    @IBOutlet weak var addButton: DeliveryHairButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var segmentControl: CustomSegmentedControl!
     
@@ -30,7 +29,6 @@ class ProfileVC: UIViewController, Storyboarded {
     
     func initSetup() {
         add(viewControllerToContainer: myProfileVC)
-        addButton.isHidden = true
     }
     
     func add(viewControllerToContainer viewController: UIViewController) {
@@ -48,15 +46,10 @@ extension ProfileVC {
         switch sender.selectedSegmentIndex {
         case 0:
             add(viewControllerToContainer: myProfileVC)
-            addButton.isHidden = true
         case 1:
             add(viewControllerToContainer: myAddressVC)
-            addButton.setTitle("Adicionar Endereço", for: .normal)
-            addButton.isHidden = false
         case 2:
             add(viewControllerToContainer: myCardVC)
-            addButton.setTitle("Adicionar Cartão", for: .normal)
-            addButton.isHidden = false
         default:
             break
         }
@@ -67,9 +60,6 @@ extension ProfileVC {
         switch child {
         case myAddressVC:
             let vc = RegisterAddressVC.instantiateFromLoginStoryboard()
-            navigationController?.pushViewController(vc, animated: true)
-        case myCardVC:
-            let vc = CardVC.instantiateFromCardStoryboard()
             navigationController?.pushViewController(vc, animated: true)
         default:
             break

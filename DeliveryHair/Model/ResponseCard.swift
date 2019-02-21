@@ -48,4 +48,13 @@ struct ResponseCard: Codable {
             return "\(oneF) \(twoF) \(threeF) \(fourF)"
         }
     }
+    
+    func generatePayloadForPayment(with amount: Double, cardSafeCode safeCode: Int) -> [String:Any] {
+        return [
+            "card_id": self.cardId,
+            "amount": amount,
+            "safe_code": safeCode,
+            "store_id": 0
+        ]
+    }
 }

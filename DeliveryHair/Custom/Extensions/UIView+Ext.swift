@@ -45,6 +45,23 @@ extension UIView {
     }
 }
 
+extension UIViewController {
+    func showAlert(title ttl: String, message msg: String) {
+        //let alertController = UIAlertController(title: ttl, message: msg, preferredStyle: .alert)
+    }
+    
+    func initPopup(from xib: PopupType) -> UIViewController? {
+        switch xib {
+        case .cardCvv:
+            let vc = CardCvvVC.init(nibName: "CardCvvVC", bundle: Bundle.main)
+            vc.modalPresentationStyle   = .overCurrentContext
+            vc.modalTransitionStyle     = .crossDissolve
+            return vc
+        }
+    }
+    
+}
+
 extension UINavigationBar {
     func setTransparent() {
         self.setBackgroundImage(UIImage(), for: .default)

@@ -71,4 +71,13 @@ extension Card {
             "card_venc_date": self.cardVencDate
         ]
     }
+    
+    func generatePayloadForPayment(with amount: Double, cardSafeCode safeCode: Int) -> [String:Any] {
+        return [
+            "card_id": self.cardId ?? 0,
+            "amount": amount,
+            "safe_code": safeCode,
+            "store_id": 0
+        ]
+    }
 }

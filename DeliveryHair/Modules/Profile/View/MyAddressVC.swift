@@ -8,11 +8,13 @@
 
 import UIKit
 
-class MyAddressVC: UITableViewController, Storyboarded {
+class MyAddressVC: UIViewController, Storyboarded {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     private var dispatchGroup = DispatchGroup()
     private var addressArr: [Address]?
-    
+    private var refreshControl = UIRefreshControl()
     weak var delegate: CheckoutVC?
     var fromCell: Bool?
     
@@ -32,13 +34,13 @@ class MyAddressVC: UITableViewController, Storyboarded {
         
         LoadingVC.sharedInstance.show()
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.tintColor = Colors.darkPink
-        refreshControl?.attributedTitle = NSAttributedString(string: "Verificando novos endereços cadastrados...", attributes: [
+        refreshControl.tintColor = Colors.darkPink
+        refreshControl.attributedTitle = NSAttributedString(string: "Verificando novos endereços cadastrados...", attributes: [
             NSAttributedString.Key.font : Fonts.robotoMedium_10pt!,
             NSAttributedString.Key.foregroundColor : Colors.lightPink])
-        refreshControl?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
+        tableView.refreshControl = refreshControl
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -51,7 +53,7 @@ class MyAddressVC: UITableViewController, Storyboarded {
     
     func endRefreshControl() {
         DispatchQueue.main.async {
-            self.refreshControl?.endRefreshing()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -82,30 +84,49 @@ class MyAddressVC: UITableViewController, Storyboarded {
             self.endRefreshControl()
         }
     }
+    
+    func addAddressCellTapped() {
+        let vc = RegisterAddressVC.instantiateFromLoginStoryboard()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
-extension MyAddressVC {
-    override func numberOfSections(in tableView: UITableView) -> Int {
+extension MyAddressVC: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let adArr = addressArr else { return 0 }
-        return adArr.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let adArr = addressArr else { return 1 }
+        if adArr.count == 0 {
+            return 1
+        }
+        return adArr.count + 1
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.addressCell) as! AddressCell
-        
-        cell.textLabel?.text = addressArray[indexPath.row].endereco
-        cell.detailTextLabel?.text = addressArray[indexPath.row].bairro
-        
-        return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == addressArr?.count {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.addItemCell) else { return UITableViewCell() }
+            cell.textLabel?.text = "Adicione um endereço +"
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.addressCell) else { return UITableViewCell() }
+            guard let addArr = self.addressArr else { return UITableViewCell() }
+            cell.textLabel?.text = addArr[indexPath.row].endereco
+            cell.detailTextLabel?.text = addArr[indexPath.row].bairro
+            return cell
+        }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.popViewController(animated: true)
-        guard let address = addressArr?[indexPath.row] else { return }
-        delegate?.didSelectDelegate(address: address)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == addressArr?.count {
+            self.addAddressCellTapped()
+        } else {
+            if let _ = fromCell {
+                navigationController?.popViewController(animated: true)
+                guard let address = addressArr?[indexPath.row] else { return }
+                delegate?.didSelectDelegate(address: address)
+            }
+        }
     }
 }

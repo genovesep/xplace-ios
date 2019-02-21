@@ -108,6 +108,9 @@
                                 <state key="normal" title="Fazer Pedido!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkoutButtonTapped:" destination="dHp-Rk-J8L" eventType="touchUpInside" id="4jg-zk-kAT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

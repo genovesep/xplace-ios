@@ -83,7 +83,7 @@ class MainVC: UIViewController, Storyboarded {
             if let productArr = response {
                 DispatchQueue.main.async {                    
                     self.localProductArr = productArr                    
-                    self.tableView.reloadData()
+                    self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                     self.setCarousel()
                 }
             } else {

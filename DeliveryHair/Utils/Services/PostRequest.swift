@@ -54,6 +54,8 @@ class PostRequest {
             }
             
             do {
+                let resp = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print(resp)
                 let json = try JSONDecoder().decode(T.self, from: data)
                 onSuccess(SuccessObject(statusCode: sCode, object: json))
             } catch {

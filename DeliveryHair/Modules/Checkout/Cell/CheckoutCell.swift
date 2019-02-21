@@ -74,7 +74,7 @@ class CheckoutCell: UITableViewCell {
                                     }
                                 }
                             }
-                            descriptionString.append("\n\n")
+                            descriptionString.append("\nTotal: ---- \(item.getTotal().toLocalCurrency())\n\n")
                             descriptionLabel.text = descriptionString
                             fPass = true
                         } else if product.productColors.count > 0 {
@@ -86,13 +86,16 @@ class CheckoutCell: UITableViewCell {
                                     descriptionString.append(str)
                                 }
                             }
-                            descriptionString.append("\n\n")
+                            descriptionString.append("\nTotal: ---- \(item.getTotal().toLocalCurrency())\n\n")
                             descriptionLabel.text = descriptionString
                         } else {
-                            descriptionString.append("---\n\n")
+                            descriptionString.append("---\n")
+                            descriptionString.append("Total: ---- \(item.getTotal().toLocalCurrency())\n\n")
                             descriptionLabel.text = descriptionString
                         }
                     }
+                    descriptionString+="Total do Pedido: ---- \(cart.getTotal().toLocalCurrency())"
+                    descriptionLabel.text = descriptionString
                 } else {
                     descriptionLabel.text = "Não foi possível carregar o pedido"
                 }
